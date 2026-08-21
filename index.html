@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>プロタイムズ福岡中央店 | 外壁・屋根リフォーム</title>
-<meta name="description" content="福岡市の外壁塗装・屋根リフォーム専門店プロタイムズ福岡中央店。自社施工・適正価格・工事保証で、住まいの寿命を延ばします。無料診断・お見積り受付中。">
+<title>プロタイムズ福岡中央店 | 外装リフォーム（外壁・屋根・玄関ドア・給湯器）</title>
+<meta name="description" content="福岡市の外装リフォーム専門店プロタイムズ福岡中央店。外壁塗装・屋根塗装・屋根カバー工法・玄関ドアリフォーム・給湯器交換まで、自社施工・適正価格・工事保証でまとめて対応。無料診断・お見積り受付中。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
@@ -279,7 +279,7 @@
   /* Problem signs */
   .signs-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 16px;
   }
   .sign-card {
@@ -291,6 +291,43 @@
   .sign-card .ico { font-size: 1.6rem; margin-bottom: 10px; }
   .sign-card h3 { font-size: 0.98rem; font-weight: 700; margin-bottom: 6px; }
   .sign-card p { font-size: 0.85rem; color: var(--muted); margin: 0; }
+
+  /* Services */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  .service-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 26px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .service-card .ico {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: var(--accent-soft);
+    display: grid;
+    place-items: center;
+    font-size: 1.35rem;
+  }
+  .service-card h3 { font-size: 1.02rem; font-weight: 700; }
+  .service-card p { font-size: 0.85rem; color: var(--ink-soft); margin: 0; flex-grow: 1; }
+  .service-card .price-tag {
+    align-self: flex-start;
+    background: var(--surface-2);
+    border-radius: 999px;
+    padding: 5px 14px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
 
   /* USP */
   .usp-list {
@@ -402,7 +439,7 @@
   /* Voices */
   .voice-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 20px;
   }
   .voice-card {
@@ -558,6 +595,7 @@
     .hero-grid { grid-template-columns: 1fr; }
     .hero-art { max-width: 340px; margin: 0 auto; }
     .signs-grid { grid-template-columns: repeat(2, 1fr); }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
     .usp-list { grid-template-columns: 1fr; }
     .process-list { grid-template-columns: repeat(2, 1fr); row-gap: 28px; }
     .process-step:nth-child(2n)::after { display: none; }
@@ -570,6 +608,7 @@
 
   @media (max-width: 560px) {
     .signs-grid { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
     form.quote-form .row { grid-template-columns: 1fr; }
   }
 
@@ -591,7 +630,7 @@
       </span>
       <span class="brand-text">
         <div class="logo-word">プロタイムズ福岡中央店</div>
-        <small>外壁・屋根リフォーム専門</small>
+        <small>外壁・屋根・玄関ドア・給湯器の外装リフォーム</small>
       </span>
     </a>
     <div class="header-cta">
@@ -610,10 +649,10 @@
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <span class="eyebrow">福岡市の外壁・屋根リフォーム専門店</span>
-        <h1>その一色が、<br>住まいの寿命を<span class="hl">10年</span>延ばす。</h1>
+        <span class="eyebrow">福岡市の外装リフォーム専門店</span>
+        <h1>外壁・屋根・玄関ドア・給湯器。<br>住まいの<span class="hl">外まわり</span>をまとめて刷新。</h1>
         <p class="hero-lead">
-          自社の職人が直接施工し、下請け任せにしない品質管理。適正価格の内訳を全てご提示し、工事完了後も長期保証でお住まいを見守ります。まずは無料の外壁診断から。
+          外壁塗装・屋根塗装/屋根カバー工法・玄関ドアリフォーム・給湯器交換まで、外装リフォームを1社で対応。自社スタッフが直接施工し、適正価格の内訳を全てご提示。工事完了後も長期保証でお住まいを見守ります。
         </p>
         <div class="hero-actions">
           <a href="tel:0120000123" class="btn btn-primary">
@@ -650,7 +689,7 @@
       <span class="eyebrow">こんな症状ありませんか</span>
       <div class="section-head">
         <h2>放置すると、補修費用が数十万円単位で膨らみます</h2>
-        <p>外壁・屋根の劣化は内部まで進行してから気づくケースがほとんど。早期発見で工事範囲と費用を最小限に抑えられます。</p>
+        <p>外壁・屋根だけでなく、玄関ドアや給湯器の不調も見過ごされがちなサイン。早期発見で工事範囲と費用を最小限に抑えられます。</p>
       </div>
       <div class="signs-grid">
         <div class="sign-card">
@@ -664,14 +703,61 @@
           <p>壁に触れると白い粉が付く。塗膜の防水機能が切れている状態です。</p>
         </div>
         <div class="sign-card">
+          <div class="ico">🏠</div>
+          <h3>屋根の苔・ズレ</h3>
+          <p>雨漏りの前兆になることが多く、早めの点検をおすすめします。</p>
+        </div>
+        <div class="sign-card">
+          <div class="ico">🚪</div>
+          <h3>玄関ドアの建付け不良</h3>
+          <p>開閉が重い、すきま風が入る、鍵の劣化などは交換の目安です。</p>
+        </div>
+        <div class="sign-card">
+          <div class="ico">🔥</div>
+          <h3>給湯器の異音・エラー表示</h3>
+          <p>お湯の温度が不安定、点火に時間がかかるなどは寿命のサインです。</p>
+        </div>
+        <div class="sign-card">
           <div class="ico">🎨</div>
           <h3>色あせ・変色</h3>
           <p>紫外線劣化のサイン。美観だけでなく防水性の低下も意味します。</p>
         </div>
-        <div class="sign-card">
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section>
+    <div class="wrap">
+      <span class="eyebrow">取り扱いサービス</span>
+      <div class="section-head">
+        <h2>外装リフォームに関わる工事を、まとめて1社にお任せ</h2>
+        <p>「どこに頼めばいいか分からない」外まわりの工事を窓口一つで解決。別々に発注するより打ち合わせも足場も一度で済みます。</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="ico">🧱</div>
+          <h3>外壁塗装</h3>
+          <p>塗料グレードを選んで美観と防水性を回復。ひび割れ補修もセットで対応します。</p>
+          <span class="price-tag">65万円〜</span>
+        </div>
+        <div class="service-card">
           <div class="ico">🏠</div>
-          <h3>屋根の苔・ズレ</h3>
-          <p>雨漏りの前兆になることが多く、早めの点検をおすすめします。</p>
+          <h3>屋根塗装・屋根カバー工法</h3>
+          <p>既存屋根を残せるカバー工法にも対応。雨漏りリスクを抑えつつ耐久性を高めます。</p>
+          <span class="price-tag">45万円〜</span>
+        </div>
+        <div class="service-card">
+          <div class="ico">🚪</div>
+          <h3>玄関ドアリフォーム</h3>
+          <p>断熱・防犯性能の高いドアへカバー工法で交換。工事はほぼ1日で完了します。</p>
+          <span class="price-tag">20万円〜</span>
+        </div>
+        <div class="service-card">
+          <div class="ico">🔥</div>
+          <h3>給湯器交換</h3>
+          <p>故障・寿命による交換に迅速対応。号数・機能に合わせた最適な機種をご提案します。</p>
+          <span class="price-tag">15万円〜</span>
         </div>
       </div>
     </div>
@@ -709,8 +795,8 @@
         <div class="usp-card">
           <div class="usp-num">品質</div>
           <div>
-            <h3>自社職人による直接施工</h3>
-            <p>一級塗装技能士が在籍。外注に頼らず、責任者が現場に常駐して品質を管理します。</p>
+            <h3>自社スタッフによる直接施工</h3>
+            <p>塗装・外装工事の専門資格者が在籍。外注に頼らず、責任者が現場に常駐して品質を管理します。</p>
           </div>
         </div>
       </div>
@@ -723,7 +809,7 @@
       <span class="eyebrow">ご依頼から完工まで</span>
       <div class="section-head">
         <h2>初回のお問い合わせから、平均25日で完工</h2>
-        <p>お急ぎの雨漏り対応から、じっくり検討したい外壁塗装まで、状況に合わせてご案内します。</p>
+        <p>お急ぎの給湯器故障・雨漏り対応から、じっくり検討したい外壁塗装まで、状況に合わせてご案内します。</p>
       </div>
       <div class="process-list">
         <div class="process-step">
@@ -734,7 +820,7 @@
         <div class="process-step">
           <div class="step-num">2</div>
           <h3>無料現地診断</h3>
-          <p>専門スタッフが訪問し、外壁・屋根の状態を写真付きで診断します。</p>
+          <p>専門スタッフが訪問し、外壁・屋根・玄関ドア・給湯器の状態を診断します。</p>
         </div>
         <div class="process-step">
           <div class="step-num">3</div>
@@ -760,8 +846,8 @@
     <div class="wrap">
       <span class="eyebrow">料金の目安</span>
       <div class="section-head">
-        <h2>建物の規模・塗料グレードに応じた3プラン</h2>
-        <p>下記は延床面積30坪前後の一般的な戸建て住宅を想定した目安です。正式な金額は無料診断後にご提示します。</p>
+        <h2>外壁・屋根塗装は、塗料グレードに応じた3プラン</h2>
+        <p>下記は延床面積30坪前後の一般的な戸建て住宅を想定した目安です。玄関ドア・給湯器の料金目安は前項のサービス一覧をご覧ください。正式な金額はいずれも無料診断後にご提示します。</p>
       </div>
       <div class="price-grid">
         <div class="price-card">
@@ -820,13 +906,18 @@
         </div>
         <div class="voice-card">
           <div class="voice-stars">★★★★★</div>
-          <p class="quote">「雨漏りで焦っていましたが、当日中に診断に来てもらい応急処置まで対応いただきました。保証があるので長い目で見て安心です。」</p>
-          <div class="voice-meta"><span>糟屋郡・M様</span><span>屋根修理</span></div>
+          <p class="quote">「雨漏りで焦っていましたが、当日中に診断に来てもらい応急処置まで対応いただきました。屋根カバー工法で工期も短く、保証があるので安心です。」</p>
+          <div class="voice-meta"><span>糟屋郡・M様</span><span>屋根カバー工法</span></div>
         </div>
         <div class="voice-card">
           <div class="voice-stars">★★★★★</div>
-          <p class="quote">「3社に相見積りを取りましたが、価格の説明が一番分かりやすかったです。工事後の点検の案内もあり長く付き合えそうです。」</p>
-          <div class="voice-meta"><span>福岡市西区・K様</span><span>屋根＋外壁</span></div>
+          <p class="quote">「給湯器が突然壊れましたが、当日のうちに駆けつけてくれて翌日には新しいものに交換完了。お湯が使えない不安が最小限で済みました。」</p>
+          <div class="voice-meta"><span>春日市・T様</span><span>給湯器交換</span></div>
+        </div>
+        <div class="voice-card">
+          <div class="voice-stars">★★★★★</div>
+          <p class="quote">「玄関ドアの断熱性が気になり相談したところ、カバー工法で1日で交換完了。外壁塗装のタイミングに合わせて一緒にお願いできて効率的でした。」</p>
+          <div class="voice-meta"><span>福岡市西区・K様</span><span>玄関ドア＋外壁塗装</span></div>
         </div>
       </div>
     </div>
@@ -896,6 +987,14 @@
           <summary>近隣への配慮はしてもらえますか？</summary>
           <p>着工前に近隣へのご挨拶を実施し、作業時間帯にも配慮します。足場や飛散防止シートの設置についても事前にご説明いたします。</p>
         </details>
+        <details class="faq-item">
+          <summary>給湯器が急に壊れました。すぐに対応してもらえますか？</summary>
+          <p>お湯が出ないなどの緊急案件は最優先でご対応します。号数やお住まいの状況を確認できれば、最短で翌日交換も可能です。まずはお電話ください。</p>
+        </details>
+        <details class="faq-item">
+          <summary>玄関ドアの交換工事は、どのくらいの期間かかりますか？</summary>
+          <p>既存の枠を残すカバー工法であれば、多くの場合1日で交換が完了します。外壁塗装と同時に依頼いただくと、足場や日程調整もまとめて行えます。</p>
+        </details>
       </div>
     </div>
   </section>
@@ -935,10 +1034,12 @@
             <label for="type">ご希望の工事内容</label>
             <select id="type" name="type">
               <option>外壁塗装</option>
-              <option>屋根塗装・修理</option>
+              <option>屋根塗装・屋根カバー工法</option>
               <option>外壁＋屋根セット</option>
+              <option>玄関ドアリフォーム</option>
+              <option>給湯器交換</option>
               <option>雨漏り修理</option>
-              <option>その他・相談したい</option>
+              <option>その他・複数箇所を相談したい</option>
             </select>
           </div>
           <div class="field">
