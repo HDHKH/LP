@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>プロタイムズ福岡中央店 | 外壁・屋根リフォーム</title>
+<meta name="description" content="福岡市の外壁塗装・屋根リフォーム専門店プロタイムズ福岡中央店。自社施工・適正価格・工事保証で、住まいの寿命を延ばします。無料診断・お見積り受付中。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FBF7F2;
+    --bg-elevated: #FFFFFF;
+    --surface-2: #F1EBE1;
+    --ink: #1D2430;
+    --ink-soft: #4A5568;
+    --muted: #8A8072;
+    --accent: #FF710A;
+    --accent-deep: #D95E00;
+    --accent-ink: #FFFFFF;
+    --accent-soft: #FFE4CC;
+    --line: #E8E1D6;
+    --success: #3E7C59;
+    --success-soft: #E1EFE6;
+    --shadow: 0 20px 45px -20px rgba(29, 36, 48, 0.25);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #14181F;
+      --bg-elevated: #1B212B;
+      --surface-2: #1F2631;
+      --ink: #F3EFE7;
+      --ink-soft: #C9C2B4;
+      --muted: #948C7C;
+      --accent: #FF8A33;
+      --accent-deep: #FFA05C;
+      --accent-ink: #1A1108;
+      --accent-soft: #3A2A1C;
+      --line: #2B323C;
+      --success: #5FA97D;
+      --success-soft: #1E2E26;
+      --shadow: 0 20px 45px -20px rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #14181F;
+    --bg-elevated: #1B212B;
+    --surface-2: #1F2631;
+    --ink: #F3EFE7;
+    --ink-soft: #C9C2B4;
+    --muted: #948C7C;
+    --accent: #FF8A33;
+    --accent-deep: #FFA05C;
+    --accent-ink: #1A1108;
+    --accent-soft: #3A2A1C;
+    --line: #2B323C;
+    --success: #5FA97D;
+    --success-soft: #1E2E26;
+    --shadow: 0 20px 45px -20px rgba(0, 0, 0, 0.6);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Noto Sans JP", "Hiragino Sans", sans-serif;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .logo-word {
+    font-family: "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  a { color: inherit; }
+  img, svg { max-width: 100%; display: block; }
+
+  .wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--accent-deep);
+    text-transform: uppercase;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 18px;
+    height: 2px;
+    background: var(--accent);
+    display: inline-block;
+  }
+
+  /* Header */
+  header.site {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+    gap: 16px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .brand-mark {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: linear-gradient(145deg, var(--accent), var(--accent-deep));
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+  }
+  .brand-mark svg { width: 24px; height: 24px; }
+  .brand-text { line-height: 1.2; }
+  .brand-text .logo-word { font-size: 1.05rem; font-weight: 900; letter-spacing: 0.01em; }
+  .brand-text small { font-size: 0.72rem; color: var(--muted); font-weight: 500; }
+
+  .header-cta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .tel-link {
+    display: none;
+    text-align: right;
+    text-decoration: none;
+  }
+  .tel-link .num {
+    font-size: 1.3rem;
+    font-weight: 900;
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink);
+  }
+  .tel-link .hours { font-size: 0.7rem; color: var(--muted); }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 22px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.92rem;
+    text-decoration: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+    white-space: nowrap;
+  }
+  .btn:focus-visible { outline: 3px solid var(--accent-deep); outline-offset: 2px; }
+  .btn-primary { background: var(--accent); color: var(--accent-ink); box-shadow: var(--shadow); }
+  .btn-primary:hover { transform: translateY(-1px); opacity: 0.95; }
+  .btn-ghost { background: transparent; border-color: var(--line); color: var(--ink); }
+  .btn-ghost:hover { border-color: var(--accent); }
+  .btn-block { width: 100%; }
+  .btn-sm { padding: 9px 16px; font-size: 0.82rem; }
+
+  /* Hero */
+  .hero {
+    position: relative;
+    padding: 64px 0 96px;
+    background:
+      radial-gradient(circle at 85% -10%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 55%),
+      var(--bg);
+    overflow: hidden;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 4.4vw, 3.1rem);
+    font-weight: 900;
+    line-height: 1.35;
+    margin: 18px 0 20px;
+  }
+  .hero h1 .hl {
+    color: var(--accent-deep);
+    position: relative;
+  }
+  .hero-lead {
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    max-width: 30em;
+    margin-bottom: 30px;
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .trust-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+  }
+  .trust-item {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    font-family: "Zen Kaku Gothic New", sans-serif;
+  }
+  .trust-item .n {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+  .trust-item .u { font-size: 0.8rem; color: var(--muted); }
+
+  .hero-art {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    display: grid;
+    place-items: center;
+  }
+  .house {
+    width: 100%;
+    height: auto;
+  }
+  .badge-float {
+    position: absolute;
+    background: var(--bg-elevated);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 10px 16px;
+    box-shadow: var(--shadow);
+    font-size: 0.78rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .badge-float.b1 { top: 6%; left: -4%; }
+  .badge-float.b2 { bottom: 8%; right: -6%; }
+  .badge-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--success); flex-shrink: 0; }
+
+  /* Sections */
+  section { padding: 84px 0; }
+  .section-head { max-width: 640px; margin: 14px 0 48px; }
+  .section-head h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 900; line-height: 1.45; }
+  .section-head p { color: var(--ink-soft); margin-top: 12px; }
+  .section-alt { background: var(--surface-2); }
+
+  /* Problem signs */
+  .signs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .sign-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 22px;
+  }
+  .sign-card .ico { font-size: 1.6rem; margin-bottom: 10px; }
+  .sign-card h3 { font-size: 0.98rem; font-weight: 700; margin-bottom: 6px; }
+  .sign-card p { font-size: 0.85rem; color: var(--muted); margin: 0; }
+
+  /* USP */
+  .usp-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .usp-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    gap: 20px;
+  }
+  .usp-num {
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    font-weight: 900;
+    font-size: 1.4rem;
+    color: var(--accent-soft);
+    -webkit-text-stroke: 1.5px var(--accent);
+    flex-shrink: 0;
+  }
+  .usp-card h3 { font-size: 1.08rem; font-weight: 700; margin-bottom: 8px; }
+  .usp-card p { font-size: 0.9rem; color: var(--ink-soft); margin: 0; }
+
+  /* Process */
+  .process-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    position: relative;
+  }
+  .process-step {
+    position: relative;
+    padding: 0 16px 0 0;
+  }
+  .process-step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 22px;
+    right: -8px;
+    width: 16px;
+    height: 2px;
+    background: var(--line);
+  }
+  .step-num {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--bg);
+    display: grid;
+    place-items: center;
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    font-weight: 900;
+    font-size: 1rem;
+    margin-bottom: 16px;
+  }
+  .process-step h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 6px; }
+  .process-step p { font-size: 0.82rem; color: var(--muted); margin: 0; }
+
+  /* Pricing */
+  .price-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .price-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+  }
+  .price-card.featured {
+    border-color: var(--accent);
+    box-shadow: var(--shadow);
+    position: relative;
+  }
+  .price-card.featured::before {
+    content: "一番人気";
+    position: absolute;
+    top: -13px;
+    left: 28px;
+    background: var(--accent);
+    color: var(--accent-ink);
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 999px;
+  }
+  .price-card h3 { font-size: 1.1rem; font-weight: 700; }
+  .price-card .desc { font-size: 0.82rem; color: var(--muted); margin-top: 6px; }
+  .price-card .amount {
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    font-weight: 900;
+    font-size: 1.9rem;
+    margin: 20px 0 4px;
+    font-variant-numeric: tabular-nums;
+  }
+  .price-card .amount span { font-size: 0.9rem; font-weight: 500; color: var(--muted); }
+  .price-card ul { list-style: none; margin: 20px 0 26px; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .price-card li { font-size: 0.86rem; color: var(--ink-soft); display: flex; gap: 8px; }
+  .price-card li::before { content: "✓"; color: var(--success); font-weight: 700; }
+  .price-note { text-align: center; font-size: 0.82rem; color: var(--muted); margin-top: 24px; }
+
+  /* Voices */
+  .voice-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .voice-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 26px;
+  }
+  .voice-stars { color: var(--accent); font-size: 0.9rem; margin-bottom: 12px; letter-spacing: 2px; }
+  .voice-card p.quote { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 16px; }
+  .voice-meta { display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 12px; }
+
+  /* Area */
+  .area-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    background: var(--bg-elevated);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 40px;
+  }
+  .area-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+  .area-chip {
+    background: var(--surface-2);
+    border-radius: 999px;
+    padding: 7px 16px;
+    font-size: 0.84rem;
+    font-weight: 500;
+  }
+
+  /* FAQ */
+  .faq-item {
+    border-bottom: 1px solid var(--line);
+    padding: 20px 0;
+  }
+  .faq-item summary {
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.98rem;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: "+";
+    font-size: 1.4rem;
+    color: var(--accent);
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+    font-weight: 400;
+  }
+  .faq-item[open] summary::after { transform: rotate(45deg); }
+  .faq-item p { color: var(--ink-soft); margin: 14px 0 0; font-size: 0.9rem; max-width: 70ch; }
+
+  /* CTA + Form */
+  .cta-section {
+    background: linear-gradient(160deg, var(--ink), #10141b 70%);
+    border-radius: 28px;
+    padding: 56px;
+    color: #F3EFE7;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+  .cta-section .section-head h2, .cta-section .section-head p { color: #F3EFE7; }
+  .cta-section .section-head p { color: #B9B2A3; }
+  .cta-phone-block {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .cta-phone-block .tel-big {
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: #fff;
+    text-decoration: none;
+    font-variant-numeric: tabular-nums;
+  }
+  .cta-phone-block .hours { color: #B9B2A3; font-size: 0.85rem; }
+
+  form.quote-form {
+    background: var(--bg-elevated);
+    border-radius: 20px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  form.quote-form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .field label { font-size: 0.8rem; font-weight: 700; color: var(--ink); }
+  .field input, .field select, .field textarea {
+    font: inherit;
+    padding: 11px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    background: var(--bg);
+    color: var(--ink);
+  }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+  }
+  .field textarea { resize: vertical; min-height: 80px; }
+  .form-note { font-size: 0.76rem; color: var(--muted); }
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 30px 10px;
+  }
+  .form-success .check {
+    width: 52px; height: 52px; border-radius: 50%;
+    background: var(--success-soft); color: var(--success);
+    display: grid; place-items: center; margin: 0 auto 16px;
+    font-size: 1.4rem; font-weight: 900;
+  }
+
+  /* Footer */
+  footer.site {
+    border-top: 1px solid var(--line);
+    padding: 40px 0 28px;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+
+  /* Mobile sticky CTA */
+  .mobile-cta {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 60;
+    display: flex;
+    gap: 10px;
+    padding: 10px 16px;
+    background: var(--bg-elevated);
+    border-top: 1px solid var(--line);
+    box-shadow: 0 -10px 30px -20px rgba(0,0,0,0.3);
+  }
+  .mobile-cta .btn { flex: 1; }
+
+  @media (min-width: 720px) {
+    .tel-link { display: block; }
+    .mobile-cta { display: none; }
+  }
+
+  @media (max-width: 960px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-art { max-width: 340px; margin: 0 auto; }
+    .signs-grid { grid-template-columns: repeat(2, 1fr); }
+    .usp-list { grid-template-columns: 1fr; }
+    .process-list { grid-template-columns: repeat(2, 1fr); row-gap: 28px; }
+    .process-step:nth-child(2n)::after { display: none; }
+    .price-grid { grid-template-columns: 1fr; }
+    .voice-grid { grid-template-columns: 1fr; }
+    .area-box { grid-template-columns: 1fr; padding: 28px; }
+    .cta-section { grid-template-columns: 1fr; padding: 32px; border-radius: 20px; }
+    body { padding-bottom: 66px; }
+  }
+
+  @media (max-width: 560px) {
+    .signs-grid { grid-template-columns: 1fr; }
+    form.quote-form .row { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { scroll-behavior: auto !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="header-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 12L12 5L20 12" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M6.5 10.5V19H17.5V10.5" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <span class="brand-text">
+        <div class="logo-word">プロタイムズ福岡中央店</div>
+        <small>外壁・屋根リフォーム専門</small>
+      </span>
+    </a>
+    <div class="header-cta">
+      <a href="tel:0120000123" class="tel-link">
+        <div class="num">0120-000-123</div>
+        <div class="hours">受付 8:00-19:00 / 年中無休</div>
+      </a>
+      <a href="#quote" class="btn btn-primary">無料見積りを依頼</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">福岡市の外壁・屋根リフォーム専門店</span>
+        <h1>その一色が、<br>住まいの寿命を<span class="hl">10年</span>延ばす。</h1>
+        <p class="hero-lead">
+          自社の職人が直接施工し、下請け任せにしない品質管理。適正価格の内訳を全てご提示し、工事完了後も長期保証でお住まいを見守ります。まずは無料の外壁診断から。
+        </p>
+        <div class="hero-actions">
+          <a href="tel:0120000123" class="btn btn-primary">
+            📞 0120-000-123（無料相談）
+          </a>
+          <a href="#quote" class="btn btn-ghost">無料診断・見積りを申し込む</a>
+        </div>
+        <div class="trust-row">
+          <div class="trust-item"><span class="n">1,200</span><span class="u">件超の施工実績</span></div>
+          <div class="trust-item"><span class="n">18</span><span class="u">年の創業歴</span></div>
+          <div class="trust-item"><span class="n">最長15</span><span class="u">年の工事保証</span></div>
+        </div>
+      </div>
+      <div class="hero-art">
+        <svg class="house" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="160" cy="290" rx="130" ry="14" fill="var(--surface-2)"/>
+          <polygon points="60,150 160,70 260,150" fill="var(--ink)"/>
+          <rect x="75" y="150" width="170" height="120" fill="var(--bg-elevated)" stroke="var(--line)" stroke-width="2"/>
+          <rect x="75" y="150" width="170" height="18" fill="var(--accent)"/>
+          <rect x="100" y="185" width="34" height="34" fill="var(--surface-2)" stroke="var(--line)" stroke-width="2"/>
+          <rect x="186" y="185" width="34" height="34" fill="var(--surface-2)" stroke="var(--line)" stroke-width="2"/>
+          <rect x="145" y="228" width="30" height="42" fill="var(--ink)"/>
+          <rect x="60" y="270" width="200" height="8" fill="var(--line)"/>
+        </svg>
+        <div class="badge-float b1"><span class="badge-dot"></span> 見積り無料</div>
+        <div class="badge-float b2"><span class="badge-dot"></span> 自社施工</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM SIGNS -->
+  <section>
+    <div class="wrap">
+      <span class="eyebrow">こんな症状ありませんか</span>
+      <div class="section-head">
+        <h2>放置すると、補修費用が数十万円単位で膨らみます</h2>
+        <p>外壁・屋根の劣化は内部まで進行してから気づくケースがほとんど。早期発見で工事範囲と費用を最小限に抑えられます。</p>
+      </div>
+      <div class="signs-grid">
+        <div class="sign-card">
+          <div class="ico">🧱</div>
+          <h3>外壁のひび割れ</h3>
+          <p>雨水が侵入し、内部の木材腐食につながる恐れがあります。</p>
+        </div>
+        <div class="sign-card">
+          <div class="ico">🖐️</div>
+          <h3>チョーキング現象</h3>
+          <p>壁に触れると白い粉が付く。塗膜の防水機能が切れている状態です。</p>
+        </div>
+        <div class="sign-card">
+          <div class="ico">🎨</div>
+          <h3>色あせ・変色</h3>
+          <p>紫外線劣化のサイン。美観だけでなく防水性の低下も意味します。</p>
+        </div>
+        <div class="sign-card">
+          <div class="ico">🏠</div>
+          <h3>屋根の苔・ズレ</h3>
+          <p>雨漏りの前兆になることが多く、早めの点検をおすすめします。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USP -->
+  <section class="section-alt">
+    <div class="wrap">
+      <span class="eyebrow">選ばれる4つの理由</span>
+      <div class="section-head">
+        <h2>「信頼できる工事店」の条件を、すべて満たしています</h2>
+      </div>
+      <div class="usp-list">
+        <div class="usp-card">
+          <div class="usp-num">実績</div>
+          <div>
+            <h3>創業18年・施工実績1,200件超</h3>
+            <p>福岡市を中心に地域密着で営業。口コミとご紹介からのご依頼が半数以上を占めています。</p>
+          </div>
+        </div>
+        <div class="usp-card">
+          <div class="usp-num">保証</div>
+          <div>
+            <h3>工事保証書の発行 + 定期点検</h3>
+            <p>最長15年の保証書を発行。引き渡し後1年・3年・5年目に無料点検を実施し、施工後も責任を持ってお付き合いします。</p>
+          </div>
+        </div>
+        <div class="usp-card">
+          <div class="usp-num">価格</div>
+          <div>
+            <h3>中間マージンゼロの適正価格</h3>
+            <p>代理店を通さない自社直接受注のため、余計な紹介料が発生しません。見積書は材料費・施工費を項目別に開示します。</p>
+          </div>
+        </div>
+        <div class="usp-card">
+          <div class="usp-num">品質</div>
+          <div>
+            <h3>自社職人による直接施工</h3>
+            <p>一級塗装技能士が在籍。外注に頼らず、責任者が現場に常駐して品質を管理します。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section>
+    <div class="wrap">
+      <span class="eyebrow">ご依頼から完工まで</span>
+      <div class="section-head">
+        <h2>初回のお問い合わせから、平均25日で完工</h2>
+        <p>お急ぎの雨漏り対応から、じっくり検討したい外壁塗装まで、状況に合わせてご案内します。</p>
+      </div>
+      <div class="process-list">
+        <div class="process-step">
+          <div class="step-num">1</div>
+          <h3>ご相談・お問い合わせ</h3>
+          <p>電話またはフォームから、気になる症状をお聞かせください。</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">2</div>
+          <h3>無料現地診断</h3>
+          <p>専門スタッフが訪問し、外壁・屋根の状態を写真付きで診断します。</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">3</div>
+          <h3>お見積り提示</h3>
+          <p>診断結果と項目別の見積書を、当日〜3日以内にご提示します。</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">4</div>
+          <h3>ご契約・工事開始</h3>
+          <p>ご近隣への挨拶を含め、日程調整のうえ着工します。</p>
+        </div>
+        <div class="process-step">
+          <div class="step-num">5</div>
+          <h3>完工・保証書発行</h3>
+          <p>仕上がりをご確認いただき、保証書と点検スケジュールをお渡しします。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section-alt">
+    <div class="wrap">
+      <span class="eyebrow">料金の目安</span>
+      <div class="section-head">
+        <h2>建物の規模・塗料グレードに応じた3プラン</h2>
+        <p>下記は延床面積30坪前後の一般的な戸建て住宅を想定した目安です。正式な金額は無料診断後にご提示します。</p>
+      </div>
+      <div class="price-grid">
+        <div class="price-card">
+          <h3>シリコンプラン</h3>
+          <p class="desc">コストと耐久性のバランス重視</p>
+          <div class="amount">65<span>万円〜（税込）</span></div>
+          <ul>
+            <li>耐久年数目安 8〜10年</li>
+            <li>外壁塗装（3回塗り）</li>
+            <li>高圧洗浄・下地補修込み</li>
+            <li>工事保証 5年</li>
+          </ul>
+          <a href="#quote" class="btn btn-ghost btn-block">このプランで相談する</a>
+        </div>
+        <div class="price-card featured">
+          <h3>フッ素プラン</h3>
+          <p class="desc">長持ちさせたい方に一番人気</p>
+          <div class="amount">88<span>万円〜（税込）</span></div>
+          <ul>
+            <li>耐久年数目安 12〜15年</li>
+            <li>外壁塗装＋付帯部塗装</li>
+            <li>高圧洗浄・下地補修込み</li>
+            <li>工事保証 10年</li>
+          </ul>
+          <a href="#quote" class="btn btn-primary btn-block">このプランで相談する</a>
+        </div>
+        <div class="price-card">
+          <h3>屋根＋外壁プラン</h3>
+          <p class="desc">外まわりをまとめて刷新</p>
+          <div class="amount">128<span>万円〜（税込）</span></div>
+          <ul>
+            <li>耐久年数目安 12〜15年</li>
+            <li>屋根塗装＋外壁塗装セット</li>
+            <li>足場・防水シート込み</li>
+            <li>工事保証 最長15年</li>
+          </ul>
+          <a href="#quote" class="btn btn-ghost btn-block">このプランで相談する</a>
+        </div>
+      </div>
+      <p class="price-note">※ 建物の形状・劣化状況・使用塗料により価格は変動します。火災保険が適用できるケースもあるためお気軽にご相談ください。</p>
+    </div>
+  </section>
+
+  <!-- VOICES -->
+  <section>
+    <div class="wrap">
+      <span class="eyebrow">お客様の声</span>
+      <div class="section-head">
+        <h2>実際にご依頼いただいた方の感想</h2>
+      </div>
+      <div class="voice-grid">
+        <div class="voice-card">
+          <div class="voice-stars">★★★★★</div>
+          <p class="quote">「見積書の内訳が細かく、他社と比較しても納得感がありました。職人さんの挨拶や後片付けも丁寧で安心してお任せできました。」</p>
+          <div class="voice-meta"><span>福岡市早良区・S様</span><span>外壁塗装</span></div>
+        </div>
+        <div class="voice-card">
+          <div class="voice-stars">★★★★★</div>
+          <p class="quote">「雨漏りで焦っていましたが、当日中に診断に来てもらい応急処置まで対応いただきました。保証があるので長い目で見て安心です。」</p>
+          <div class="voice-meta"><span>糟屋郡・M様</span><span>屋根修理</span></div>
+        </div>
+        <div class="voice-card">
+          <div class="voice-stars">★★★★★</div>
+          <p class="quote">「3社に相見積りを取りましたが、価格の説明が一番分かりやすかったです。工事後の点検の案内もあり長く付き合えそうです。」</p>
+          <div class="voice-meta"><span>福岡市西区・K様</span><span>屋根＋外壁</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AREA -->
+  <section class="section-alt">
+    <div class="wrap">
+      <div class="area-box">
+        <div>
+          <span class="eyebrow">対応エリア</span>
+          <h2 style="font-size:1.5rem; font-weight:900; margin-top:12px;">福岡市全区＋近郊エリアに対応</h2>
+          <p style="color:var(--ink-soft); margin-top:10px;">記載エリア外でも出張診断が可能な場合がございます。まずはお気軽にお問い合わせください。</p>
+          <div class="area-list">
+            <span class="area-chip">福岡市東区</span>
+            <span class="area-chip">福岡市博多区</span>
+            <span class="area-chip">福岡市中央区</span>
+            <span class="area-chip">福岡市南区</span>
+            <span class="area-chip">福岡市西区</span>
+            <span class="area-chip">福岡市城南区</span>
+            <span class="area-chip">福岡市早良区</span>
+            <span class="area-chip">春日市</span>
+            <span class="area-chip">大野城市</span>
+            <span class="area-chip">糟屋郡</span>
+          </div>
+        </div>
+        <div>
+          <svg viewBox="0 0 300 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="150" cy="130" r="110" fill="var(--accent-soft)"/>
+            <circle cx="150" cy="130" r="70" fill="var(--bg-elevated)" stroke="var(--accent)" stroke-width="2"/>
+            <circle cx="150" cy="130" r="6" fill="var(--accent)"/>
+            <path d="M150 130 L150 60" stroke="var(--accent)" stroke-width="2" stroke-dasharray="4 4"/>
+            <path d="M150 130 L205 165" stroke="var(--accent)" stroke-width="2" stroke-dasharray="4 4"/>
+            <path d="M150 130 L95 175" stroke="var(--accent)" stroke-width="2" stroke-dasharray="4 4"/>
+            <text x="150" y="130" text-anchor="middle" dy="42" font-size="13" fill="var(--ink-soft)" font-family="sans-serif">出張診断エリア</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="wrap">
+      <span class="eyebrow">よくあるご質問</span>
+      <div class="section-head">
+        <h2>ご契約前に気になる点をまとめました</h2>
+      </div>
+      <div>
+        <details class="faq-item">
+          <summary>見積りやご相談は本当に無料ですか？</summary>
+          <p>はい、現地診断・お見積りは無料です。ご契約を強要することはございません。他社と比較検討いただいてからのご判断で問題ございません。</p>
+        </details>
+        <details class="faq-item">
+          <summary>工事中、家族は普段通り生活できますか？</summary>
+          <p>基本的に生活に大きな支障はありません。足場設置時や高圧洗浄時に一時的な音・振動が発生しますが、事前に工程表をお渡しし作業時間帯もご案内します。</p>
+        </details>
+        <details class="faq-item">
+          <summary>火災保険は使えますか？</summary>
+          <p>台風・雪害などの自然災害が原因の劣化は、火災保険（風災補償）が適用できる場合があります。診断時に対象になりそうな箇所があればご案内いたします。</p>
+        </details>
+        <details class="faq-item">
+          <summary>工事後に不具合が出た場合はどうなりますか？</summary>
+          <p>工事保証書に基づき無償で対応いたします。保証期間中は定期点検もあわせて実施し、早期発見・早期対応を心がけています。</p>
+        </details>
+        <details class="faq-item">
+          <summary>近隣への配慮はしてもらえますか？</summary>
+          <p>着工前に近隣へのご挨拶を実施し、作業時間帯にも配慮します。足場や飛散防止シートの設置についても事前にご説明いたします。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA + FORM -->
+  <section id="quote">
+    <div class="wrap">
+      <div class="cta-section">
+        <div>
+          <span class="eyebrow">無料診断・お見積り</span>
+          <div class="section-head" style="margin-bottom:26px;">
+            <h2>まずは無料診断から。<br>お気軽にご相談ください。</h2>
+            <p>お電話でもフォームでも、当日中〜3日以内にご連絡いたします。しつこい営業は行いません。</p>
+          </div>
+          <div class="cta-phone-block">
+            <a href="tel:0120000123" class="tel-big">0120-000-123</a>
+            <span class="hours">受付時間 8:00〜19:00（年中無休）</span>
+          </div>
+        </div>
+
+        <form class="quote-form" id="quoteForm">
+          <div class="row">
+            <div class="field">
+              <label for="name">お名前</label>
+              <input id="name" name="name" type="text" placeholder="山田 太郎" required>
+            </div>
+            <div class="field">
+              <label for="phone">電話番号</label>
+              <input id="phone" name="phone" type="tel" placeholder="090-0000-0000" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="address">ご住所（市区町村まで）</label>
+            <input id="address" name="address" type="text" placeholder="福岡市中央区〇〇">
+          </div>
+          <div class="field">
+            <label for="type">ご希望の工事内容</label>
+            <select id="type" name="type">
+              <option>外壁塗装</option>
+              <option>屋根塗装・修理</option>
+              <option>外壁＋屋根セット</option>
+              <option>雨漏り修理</option>
+              <option>その他・相談したい</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">ご相談内容（任意）</label>
+            <textarea id="message" name="message" placeholder="築年数や気になる症状などご記入ください"></textarea>
+          </div>
+          <p class="form-note">ご入力いただいた情報は、お見積りのご連絡以外の目的では使用しません。</p>
+          <button type="submit" class="btn btn-primary btn-block">この内容で無料見積りを依頼する</button>
+        </form>
+
+        <div class="form-success" id="formSuccess" style="grid-column: 1 / -1;">
+          <div class="check">✓</div>
+          <h3 style="color:#F3EFE7; font-size:1.2rem;">お問い合わせありがとうございます</h3>
+          <p style="color:#B9B2A3; margin-top:8px;">担当者より3日以内にご連絡いたします。お急ぎの場合はお電話（0120-000-123）でもご対応いたします。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap footer-inner">
+    <div>© 2026 プロタイムズ福岡中央店. All rights reserved.</div>
+    <div>福岡県福岡市●●区〇〇1-2-3 ｜ 建設業許可番号：福岡県知事許可（般-00）第00000号（表示例）</div>
+  </div>
+</footer>
+
+<div class="mobile-cta">
+  <a href="tel:0120000123" class="btn btn-primary">📞 電話で相談</a>
+  <a href="#quote" class="btn btn-ghost">見積り依頼</a>
+</div>
+
+<script>
+  document.getElementById('quoteForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    this.style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  });
+</script>
+
+</body>
+</html>
