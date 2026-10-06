@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>屋根リフォーム費用シミュレーション | プロタイムズ福岡中央店</title>
+<meta name="description" content="屋根塗装・屋根カバー工法・葺き替えの費用を30秒でシミュレーション。屋根材・坪数・築年数を選ぶだけで最適な工法と概算費用がわかります。プロタイムズ福岡中央店のドローン屋根診断は無料。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FFFFFF;
+    --bg-elevated: #FFFFFF;
+    --surface: #F3F6FA;
+    --surface-2: #E7EDF5;
+    --ink: #13233A;
+    --ink-soft: #46556B;
+    --muted: #7A8699;
+    --navy: #0B2E59;
+    --navy-ink: #FFFFFF;
+    --accent: #F08300;
+    --accent-deep: #C96A00;
+    --accent-ink: #FFFFFF;
+    --accent-soft: #FFF1E0;
+    --line: #DCE3EC;
+    --ok: #1F8A5B;
+    --ok-soft: #E3F4EC;
+    --ng: #B8402F;
+    --shadow: 0 18px 40px -22px rgba(11, 46, 89, 0.35);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0E141D; --bg-elevated: #16202D; --surface: #131C28; --surface-2: #1C2838;
+      --ink: #EEF2F7; --ink-soft: #B9C4D3; --muted: #8592A5;
+      --navy: #12345F; --navy-ink: #FFFFFF;
+      --accent: #FF9A2E; --accent-deep: #FFB45C; --accent-ink: #1A1006; --accent-soft: #3A2A16;
+      --line: #273447; --ok: #4FC08D; --ok-soft: #173126; --ng: #F07A68;
+      --shadow: 0 18px 40px -22px rgba(0, 0, 0, 0.7);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0E141D; --bg-elevated: #16202D; --surface: #131C28; --surface-2: #1C2838;
+    --ink: #EEF2F7; --ink-soft: #B9C4D3; --muted: #8592A5;
+    --navy: #12345F; --navy-ink: #FFFFFF;
+    --accent: #FF9A2E; --accent-deep: #FFB45C; --accent-ink: #1A1006; --accent-soft: #3A2A16;
+    --line: #273447; --ok: #4FC08D; --ok-soft: #173126; --ng: #F07A68;
+    --shadow: 0 18px 40px -22px rgba(0, 0, 0, 0.7);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: "Noto Sans JP", "Hiragino Sans", sans-serif;
+    line-height: 1.75; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  }
+  h1, h2, h3, .logo-word, .num-font {
+    font-family: "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
+    text-wrap: balance; margin: 0;
+  }
+  p { margin: 0; }
+  a { color: inherit; }
+  img, svg { max-width: 100%; display: block; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+  section { padding: 88px 0; }
+  .section-alt { background: var(--surface); }
+  .sec-title { text-align: center; margin-bottom: 44px; }
+  .sec-title .en {
+    display: block; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.2em;
+    color: var(--accent-deep); margin-bottom: 8px;
+  }
+  .sec-title h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 900; line-height: 1.45; }
+  .sec-title h2 em { font-style: normal; color: var(--accent-deep); }
+  .sec-title p { color: var(--ink-soft); margin-top: 14px; }
+  .note { font-size: 0.78rem; color: var(--muted); }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 14px 26px; border-radius: 8px; font-weight: 700; font-size: 0.95rem;
+    text-decoration: none; border: 2px solid transparent; cursor: pointer;
+    transition: transform .15s ease, opacity .15s ease; white-space: nowrap; font-family: inherit;
+  }
+  .btn:hover { transform: translateY(-1px); opacity: .94; }
+  .btn:focus-visible { outline: 3px solid var(--accent-deep); outline-offset: 2px; }
+  .btn-primary { background: var(--accent); color: var(--accent-ink); box-shadow: var(--shadow); }
+  .btn-navy { background: var(--navy); color: var(--navy-ink); }
+  .btn-ghost { background: transparent; border-color: var(--line); color: var(--ink); }
+  .btn-block { width: 100%; }
+  .btn-lg { padding: 18px 32px; font-size: 1.05rem; }
+
+  /* Top bar + header */
+  .topbar { background: var(--navy); color: var(--navy-ink); font-size: 0.75rem; text-align: center; padding: 6px 16px; }
+  header.site {
+    position: sticky; top: 0; z-index: 50; background: var(--bg-elevated);
+    border-bottom: 1px solid var(--line); box-shadow: 0 2px 10px -6px rgba(0,0,0,.15);
+  }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; gap: 16px; max-width: 1200px; margin: 0 auto; }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .brand-mark { width: 42px; height: 42px; border-radius: 8px; background: var(--navy); display: grid; place-items: center; flex-shrink: 0; }
+  .brand-mark svg { width: 26px; height: 26px; }
+  .brand-text { line-height: 1.25; }
+  .brand-text small { display: block; font-size: 0.68rem; color: var(--muted); }
+  .brand-text .logo-word { font-size: 1.05rem; font-weight: 900; }
+  .header-cta { display: flex; align-items: center; gap: 12px; }
+  .tel-link { text-decoration: none; text-align: right; line-height: 1.2; }
+  .tel-link .num { font-size: 1.45rem; font-weight: 900; color: var(--navy); font-variant-numeric: tabular-nums; }
+  :root[data-theme="dark"] .tel-link .num { color: var(--ink); }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .tel-link .num { color: var(--ink); } }
+  .tel-link .hours { font-size: 0.68rem; color: var(--muted); }
+  .header-cta .btn { padding: 11px 18px; font-size: 0.85rem; }
+
+  /* Hero */
+  .hero {
+    padding: 64px 0 72px; color: #fff; position: relative; overflow: hidden;
+    background:
+      linear-gradient(115deg, rgba(8, 30, 60, .94) 0%, rgba(11, 46, 89, .86) 55%, rgba(11, 46, 89, .55) 100%),
+      repeating-linear-gradient(-20deg, #2a4466 0 18px, #23395a 18px 36px);
+  }
+  .hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: center; }
+  .hero-grid > * { min-width: 0; }
+  .hero h1 .nw { display: inline-block; }
+  .hero .kicker {
+    display: inline-block; background: var(--accent); color: #fff; font-weight: 700;
+    font-size: 0.85rem; padding: 4px 14px; border-radius: 4px; margin-bottom: 18px;
+  }
+  .hero h1 { font-size: clamp(1.75rem, 4vw, 2.8rem); font-weight: 900; line-height: 1.3; }
+  .hero h1 .hl { color: #FFB45C; }
+  .hero-lead { margin: 20px 0 28px; color: #D5DEEA; font-size: 1.02rem; max-width: 32em; }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .hero-actions .btn-ghost { border-color: rgba(255,255,255,.5); color: #fff; }
+  .hero-badges { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .medal {
+    aspect-ratio: 1; border-radius: 50%; background: #fff; color: var(--navy);
+    display: grid; place-content: center; text-align: center; padding: 10px;
+    border: 3px solid #E5B567; box-shadow: 0 10px 30px -12px rgba(0,0,0,.5);
+  }
+  .medal small { font-size: 0.68rem; font-weight: 700; color: #6B5A3A; display: block; line-height: 1.3; }
+  .medal b { font-family: "Zen Kaku Gothic New", sans-serif; font-size: clamp(1.2rem, 2.4vw, 1.7rem); font-weight: 900; line-height: 1.15; display: block; }
+  .hero-sim-card {
+    margin-top: 16px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.2);
+    border-radius: 12px; padding: 16px 18px; font-size: 0.85rem; color: #D5DEEA;
+  }
+  .hero-sim-card strong { color: #fff; }
+
+  /* Simulator */
+  .sim { background: var(--surface); }
+  .sim-box {
+    background: var(--bg-elevated); border-radius: 16px; box-shadow: var(--shadow);
+    border: 1px solid var(--line); overflow: hidden;
+  }
+  .sim-head { background: var(--navy); color: #fff; padding: 18px 28px; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .sim-head h3 { font-size: 1.15rem; font-weight: 900; }
+  .progress { display: flex; gap: 6px; }
+  .progress span { width: 34px; height: 6px; border-radius: 3px; background: rgba(255,255,255,.25); transition: background .2s; }
+  .progress span.on { background: var(--accent); }
+  .sim-body { padding: 32px 28px; }
+  .q { margin-bottom: 34px; }
+  .q:last-of-type { margin-bottom: 8px; }
+  .q-label { display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 1.05rem; margin-bottom: 14px; font-family: "Zen Kaku Gothic New", sans-serif; }
+  .q-label .no {
+    background: var(--accent); color: #fff; font-size: 0.75rem; border-radius: 4px; padding: 2px 8px; letter-spacing: .05em;
+  }
+  .opts { display: grid; gap: 10px; }
+  .opts.c5 { grid-template-columns: repeat(5, 1fr); }
+  .opts.c4 { grid-template-columns: repeat(4, 1fr); }
+  .opt input { position: absolute; opacity: 0; pointer-events: none; }
+  .opt { position: relative; display: block; }
+  .opt .face {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+    text-align: center; min-height: 100%;
+    border: 2px solid var(--line); border-radius: 10px; padding: 14px 8px; cursor: pointer;
+    font-weight: 700; font-size: 0.9rem; transition: border-color .15s, background .15s; background: var(--bg-elevated);
+  }
+  .opt .face small { font-weight: 400; font-size: 0.72rem; color: var(--muted); line-height: 1.4; }
+  .opt .face svg { width: 52px; height: 34px; }
+  .opt input:checked + .face { border-color: var(--accent); background: var(--accent-soft); }
+  .opt input:focus-visible + .face { outline: 3px solid var(--accent-deep); outline-offset: 2px; }
+  .range-row { display: flex; align-items: center; gap: 18px; }
+  .range-row input[type=range] { flex: 1; accent-color: var(--accent); height: 28px; }
+  .range-val { min-width: 150px; text-align: right; font-weight: 900; font-size: 1.5rem; font-family: "Zen Kaku Gothic New", sans-serif; color: var(--accent-deep); font-variant-numeric: tabular-nums; }
+  .range-val small { font-size: 0.75rem; color: var(--muted); font-weight: 500; display: block; }
+
+  /* Result */
+  .result { border-top: 6px solid var(--accent); background: var(--surface); padding: 32px 28px; }
+  .result-top { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center; margin-bottom: 26px; }
+  .reco-label { font-size: 0.85rem; font-weight: 700; color: var(--ink-soft); }
+  .reco-name { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 900; color: var(--navy); font-family: "Zen Kaku Gothic New", sans-serif; }
+  :root[data-theme="dark"] .reco-name { color: var(--accent-deep); }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .reco-name { color: var(--accent-deep); } }
+  .reco-price { font-family: "Zen Kaku Gothic New", sans-serif; font-weight: 900; font-size: clamp(1.9rem, 4.4vw, 2.8rem); color: var(--accent-deep); line-height: 1.2; font-variant-numeric: tabular-nums; }
+  .reco-price small { font-size: 0.9rem; color: var(--ink-soft); }
+  .reco-why { background: var(--bg-elevated); border-left: 4px solid var(--accent); padding: 14px 18px; border-radius: 6px; font-size: 0.9rem; color: var(--ink-soft); }
+  .compare { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .cmp {
+    background: var(--bg-elevated); border: 2px solid var(--line); border-radius: 12px; padding: 18px; position: relative;
+  }
+  .cmp.best { border-color: var(--accent); }
+  .cmp.best::before {
+    content: "おすすめ"; position: absolute; top: -12px; left: 16px; background: var(--accent); color: #fff;
+    font-size: 0.72rem; font-weight: 700; padding: 2px 10px; border-radius: 4px;
+  }
+  .cmp.na { opacity: .55; }
+  .cmp h4 { margin: 0 0 6px; font-size: 1rem; }
+  .cmp .price { font-family: "Zen Kaku Gothic New", sans-serif; font-weight: 900; font-size: 1.3rem; font-variant-numeric: tabular-nums; }
+  .cmp .bar { height: 8px; border-radius: 4px; background: var(--surface-2); margin: 10px 0; overflow: hidden; }
+  .cmp .bar i { display: block; height: 100%; background: var(--navy); border-radius: 4px; transition: width .4s ease; }
+  .cmp.best .bar i { background: var(--accent); }
+  .cmp dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; font-size: 0.8rem; color: var(--ink-soft); }
+  .cmp dt { color: var(--muted); }
+  .cmp dd { margin: 0; font-weight: 700; color: var(--ink); }
+  .result-cta { margin-top: 26px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .result .note { margin-top: 14px; }
+
+  /* Methods table */
+  .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 12px; border: 1px solid var(--line); }
+  table.methods { width: 100%; border-collapse: collapse; min-width: 680px; background: var(--bg-elevated); font-size: 0.92rem; }
+  table.methods th, table.methods td { padding: 16px 14px; border-bottom: 1px solid var(--line); text-align: center; vertical-align: middle; }
+  table.methods thead th { background: var(--navy); color: #fff; font-size: 1rem; }
+  table.methods thead th:first-child { background: var(--surface-2); color: var(--ink); }
+  table.methods tbody th { background: var(--surface); text-align: left; white-space: nowrap; font-weight: 700; }
+  table.methods .mk { font-size: 1.3rem; font-weight: 900; color: var(--accent-deep); line-height: 1; display: block; margin-bottom: 4px; }
+  table.methods .small { font-size: 0.8rem; color: var(--ink-soft); }
+
+  /* Price menu */
+  .menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .menu-card { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; }
+  .menu-card .top { background: var(--navy); color: #fff; padding: 16px 20px; }
+  .menu-card .top small { display: block; color: #B9C8DC; font-size: 0.78rem; }
+  .menu-card .top h3 { font-size: 1.2rem; font-weight: 900; }
+  .menu-card.feat .top { background: var(--accent); }
+  .menu-card.feat .top small { color: #FFE6C7; }
+  .menu-card .mid { padding: 20px; flex: 1; }
+  .menu-card .p { font-family: "Zen Kaku Gothic New", sans-serif; font-size: 2rem; font-weight: 900; color: var(--accent-deep); font-variant-numeric: tabular-nums; line-height: 1.2; }
+  .menu-card .p small { font-size: 0.85rem; color: var(--ink-soft); font-weight: 500; }
+  .menu-card ul { margin: 14px 0 0; padding: 0; list-style: none; font-size: 0.88rem; color: var(--ink-soft); }
+  .menu-card li { padding: 6px 0 6px 22px; border-bottom: 1px dashed var(--line); position: relative; }
+  .menu-card li::before { content: "✓"; position: absolute; left: 0; color: var(--ok); font-weight: 900; }
+  .menu-card .spec { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+  .chip { font-size: 0.75rem; font-weight: 700; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 2px 10px; }
+
+  /* Check */
+  .check-wrap { display: grid; grid-template-columns: 1.2fr .8fr; gap: 28px; align-items: start; }
+  .check-list { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .chk { position: relative; }
+  .chk input { position: absolute; opacity: 0; }
+  .chk .face {
+    display: flex; gap: 12px; align-items: flex-start; border: 2px solid var(--line); border-radius: 10px;
+    padding: 14px; cursor: pointer; background: var(--bg-elevated); transition: border-color .15s, background .15s;
+  }
+  .chk .box { width: 22px; height: 22px; border: 2px solid var(--muted); border-radius: 5px; flex-shrink: 0; display: grid; place-items: center; color: #fff; font-size: 0.8rem; margin-top: 2px; }
+  .chk input:checked + .face { border-color: var(--accent); background: var(--accent-soft); }
+  .chk input:checked + .face .box { background: var(--accent); border-color: var(--accent); }
+  .chk input:checked + .face .box::after { content: "✓"; font-weight: 900; }
+  .chk input:focus-visible + .face { outline: 3px solid var(--accent-deep); outline-offset: 2px; }
+  .chk b { display: block; font-size: 0.95rem; }
+  .chk small { color: var(--muted); font-size: 0.78rem; }
+  .check-result { background: var(--navy); color: #fff; border-radius: 14px; padding: 28px; position: sticky; top: 100px; }
+  .check-result .lv { font-family: "Zen Kaku Gothic New", sans-serif; font-size: 2.6rem; font-weight: 900; line-height: 1; color: #FFB45C; }
+  .check-result .lv small { font-size: 1rem; color: #fff; }
+  .check-result p { color: #D5DEEA; font-size: 0.9rem; margin: 12px 0 20px; }
+  .meter { height: 10px; background: rgba(255,255,255,.18); border-radius: 5px; overflow: hidden; margin-top: 14px; }
+  .meter i { display: block; height: 100%; width: 0; background: #FFB45C; transition: width .3s ease; }
+
+  /* Strengths */
+  .str-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .str { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 14px; padding: 26px 22px; }
+  .str .no { font-family: "Zen Kaku Gothic New", sans-serif; font-weight: 900; font-size: 2.2rem; color: var(--accent); line-height: 1; }
+  .str h3 { font-size: 1.1rem; font-weight: 900; margin: 10px 0 8px; }
+  .str p { font-size: 0.9rem; color: var(--ink-soft); }
+
+  /* Cases */
+  .case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .case { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+  .ba { display: grid; grid-template-columns: 1fr 1fr; }
+  .ba div { aspect-ratio: 4/3; display: grid; place-items: end start; padding: 8px; font-size: 0.72rem; font-weight: 700; color: #fff; }
+  .ba .b { background: linear-gradient(160deg, #7c7a74, #4f4c46); }
+  .ba .a { background: linear-gradient(160deg, #31527d, #183256); }
+  .ba span { background: rgba(0,0,0,.45); padding: 1px 8px; border-radius: 3px; }
+  .ba .a span { background: var(--accent); }
+  .case-body { padding: 18px 20px; }
+  .case-body .where { font-size: 0.78rem; color: var(--muted); }
+  .case-body h3 { font-size: 1rem; font-weight: 900; margin: 4px 0 10px; }
+  .case-body dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; font-size: 0.85rem; }
+  .case-body dt { color: var(--muted); }
+  .case-body dd { margin: 0; font-weight: 700; }
+
+  /* Subsidy */
+  .help-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .help { border: 2px solid var(--accent); border-radius: 14px; padding: 26px; background: var(--bg-elevated); }
+  .help h3 { font-size: 1.15rem; font-weight: 900; margin-bottom: 8px; }
+  .help p { font-size: 0.9rem; color: var(--ink-soft); }
+
+  /* Flow */
+  .flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; counter-reset: s; }
+  .flow li { list-style: none; background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 12px; padding: 20px 16px; position: relative; counter-increment: s; }
+  .flow li::before { content: "STEP " counter(s); font-size: 0.72rem; font-weight: 700; letter-spacing: .1em; color: var(--accent-deep); }
+  .flow h3 { font-size: 1rem; font-weight: 900; margin: 4px 0 6px; }
+  .flow p { font-size: 0.82rem; color: var(--ink-soft); }
+  .flow { padding: 0; margin: 0; }
+
+  /* FAQ */
+  .faq { max-width: 860px; margin: 0 auto; }
+  .faq details { border-bottom: 1px solid var(--line); padding: 4px 0; }
+  .faq summary { cursor: pointer; list-style: none; padding: 18px 40px 18px 44px; font-weight: 700; position: relative; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::before { content: "Q"; position: absolute; left: 0; top: 14px; width: 30px; height: 30px; border-radius: 50%; background: var(--navy); color: #fff; display: grid; place-items: center; font-weight: 900; }
+  .faq summary::after { content: "+"; position: absolute; right: 8px; top: 14px; font-size: 1.4rem; color: var(--accent-deep); }
+  .faq details[open] summary::after { content: "−"; }
+  .faq details p { padding: 0 8px 20px 44px; color: var(--ink-soft); font-size: 0.92rem; }
+
+  /* Contact */
+  .contact { background: var(--navy); color: #fff; }
+  .contact .sec-title h2, .contact .sec-title p { color: #fff; }
+  .contact .sec-title .en { color: #FFB45C; }
+  .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 32px; align-items: start; }
+  .tel-box { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.2); border-radius: 14px; padding: 26px; }
+  .tel-box .big { display: block; font-family: "Zen Kaku Gothic New", sans-serif; font-weight: 900; font-size: clamp(1.9rem, 4vw, 2.5rem); color: #fff; text-decoration: none; font-variant-numeric: tabular-nums; }
+  .tel-box small { color: #B9C8DC; }
+  .tel-box ul { margin: 18px 0 0; padding: 0; list-style: none; font-size: 0.9rem; color: #D5DEEA; }
+  .tel-box li { padding: 4px 0; }
+  .tel-box li::before { content: "● "; color: #FFB45C; font-size: 0.7rem; }
+  form.quote { background: var(--bg-elevated); color: var(--ink); border-radius: 14px; padding: 28px; }
+  .sim-summary { display: none; background: var(--accent-soft); border: 1px solid var(--accent); border-radius: 8px; padding: 12px 14px; font-size: 0.85rem; margin-bottom: 18px; }
+  .sim-summary.on { display: block; }
+  .field { margin-bottom: 16px; }
+  .field label { display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px; }
+  .field label .req { background: var(--ng); color: #fff; font-size: 0.68rem; padding: 1px 6px; border-radius: 3px; margin-left: 6px; }
+  .field input, .field select, .field textarea {
+    width: 100%; padding: 12px 14px; border: 1px solid var(--line); border-radius: 8px; font: inherit;
+    background: var(--surface); color: var(--ink);
+  }
+  .field textarea { min-height: 90px; resize: vertical; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .form-done { display: none; text-align: center; padding: 40px 20px; }
+  .form-done .ok { width: 56px; height: 56px; border-radius: 50%; background: var(--ok); color: #fff; display: grid; place-items: center; font-size: 1.6rem; margin: 0 auto 14px; }
+
+  footer.site { background: #071F3D; color: #B9C8DC; padding: 28px 0 32px; font-size: 0.78rem; }
+  .footer-inner { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+  .mobile-cta { display: none; }
+
+  @media (max-width: 960px) {
+    .hero-grid, .check-wrap, .contact-grid, .result-top { grid-template-columns: 1fr; }
+    .hero-badges { max-width: 420px; gap: 8px; }
+    .menu-grid, .str-grid, .case-grid { grid-template-columns: 1fr 1fr; }
+    .flow { grid-template-columns: 1fr 1fr; }
+    .opts.c5 { grid-template-columns: repeat(3, 1fr); }
+    .check-result { position: static; }
+    .tel-link { display: none; }
+  }
+  @media (max-width: 680px) {
+    section { padding: 64px 0; }
+    .wrap { padding: 0 16px; }
+    .header-inner { padding: 10px 16px; }
+    .header-cta .btn { display: none; }
+    .brand-text small { display: none; }
+    .opts.c5, .opts.c4 { grid-template-columns: repeat(2, 1fr); }
+    .compare, .menu-grid, .str-grid, .case-grid, .help-grid, .check-list, .result-cta, .row2 { grid-template-columns: 1fr; }
+    .flow { grid-template-columns: 1fr; }
+    .sim-body, .result { padding: 24px 18px; }
+    .range-row { flex-direction: column; align-items: stretch; gap: 6px; }
+    .range-val { text-align: left; }
+    .mobile-cta {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 8px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+      padding: 8px 10px calc(8px + env(safe-area-inset-bottom)); background: var(--bg-elevated); border-top: 1px solid var(--line);
+    }
+    .mobile-cta .btn { padding: 12px 8px; font-size: 0.88rem; }
+    body { padding-bottom: 72px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { scroll-behavior: auto !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">福岡市・近郊の屋根リフォーム ｜ ドローン屋根診断・お見積り無料</div>
+
+<header class="site">
+  <div class="header-inner">
+    <a href="#top" class="brand" aria-label="プロタイムズ福岡中央店 トップ">
+      <span class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M3 12.5L12 5l9 7.5" stroke="#F08300" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M6 11v8h12v-8" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <span class="brand-text">
+        <small>外壁・屋根リフォーム専門店</small>
+        <span class="logo-word">プロタイムズ福岡中央店</span>
+      </span>
+    </a>
+    <div class="header-cta">
+      <a href="tel:0120000123" class="tel-link">
+        <div class="num">0120-000-123</div>
+        <div class="hours">受付 8:00〜19:00（年中無休）</div>
+      </a>
+      <a href="#simulator" class="btn btn-navy">費用シミュレーション</a>
+      <a href="#contact" class="btn btn-primary">無料診断を申し込む</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="kicker">屋根塗装・カバー工法・葺き替え</span>
+        <h1><span class="nw">うちの屋根、</span><br><span class="nw">直すと<span class="hl">いくら？</span></span><br><span class="nw">30秒でわかります。</span></h1>
+        <p class="hero-lead">屋根材・広さ・築年数を選ぶだけで、最適な工法と概算費用をその場で表示。結果をもとに、ドローンによる無料屋根診断で正式なお見積りをご提示します。</p>
+        <div class="hero-actions">
+          <a href="#simulator" class="btn btn-primary btn-lg">今すぐ費用をシミュレーション ▶</a>
+          <a href="tel:0120000123" class="btn btn-ghost btn-lg">📞 0120-000-123</a>
+        </div>
+      </div>
+      <div>
+        <div class="hero-badges">
+          <div class="medal"><small>屋根・外壁<br>施工実績</small><b>1,200<span style="font-size:.6em">件超</span></b></div>
+          <div class="medal"><small>工事後の<br>長期保証</small><b>最長<br>15<span style="font-size:.6em">年</span></b></div>
+          <div class="medal"><small>ドローン<br>屋根診断</small><b>0<span style="font-size:.6em">円</span></b></div>
+        </div>
+        <div class="hero-sim-card">✓ 個人情報の入力なしで<strong>概算費用がすぐわかる</strong><br>✓ 塗装・カバー・葺き替えの<strong>3工法を同時比較</strong></div>
+        <p class="note" style="color:#9FB2CA; margin-top:8px;">※実績・保証年数は表示例です。店舗の実数値に差し替えてください。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMULATOR -->
+  <section class="sim" id="simulator">
+    <div class="wrap">
+      <div class="sec-title">
+        <span class="en">PRICE SIMULATION</span>
+        <h2>屋根リフォーム<em>費用シミュレーション</em></h2>
+        <p>4つの質問に答えるだけ。選択するたびに結果が自動で更新されます。</p>
+      </div>
+
+      <div class="sim-box">
+        <div class="sim-head">
+          <h3>お住まいの屋根について教えてください</h3>
+          <div class="progress" aria-hidden="true"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span></div>
+        </div>
+        <form class="sim-body" id="simForm" onsubmit="return false;">
+
+          <fieldset class="q" style="border:0;padding:0;margin-inline:0;">
+            <legend class="q-label"><span class="no">Q1</span>今の屋根材は？</legend>
+            <div class="opts c5">
+              <label class="opt"><input type="radio" name="mat" value="slate" checked><span class="face">
+                <svg viewBox="0 0 52 34" aria-hidden="true"><path d="M2 30L26 6l24 24" fill="#5A6676"/><path d="M8 24h36M14 18h24" stroke="#8C98A8" stroke-width="1.5"/></svg>
+                スレート<small>コロニアル等</small></span></label>
+              <label class="opt"><input type="radio" name="mat" value="metal"><span class="face">
+                <svg viewBox="0 0 52 34" aria-hidden="true"><path d="M2 30L26 6l24 24" fill="#6E8297"/><path d="M14 18v12M22 10v20M30 10v20M38 18v12" stroke="#A8B7C7" stroke-width="1.5"/></svg>
+                金属屋根<small>ガルバリウム等</small></span></label>
+              <label class="opt"><input type="radio" name="mat" value="tin"><span class="face">
+                <svg viewBox="0 0 52 34" aria-hidden="true"><path d="M2 30L26 6l24 24" fill="#8A5A44"/><path d="M14 18v12M22 10v20M30 10v20M38 18v12" stroke="#B88A70" stroke-width="1.5"/></svg>
+                トタン<small>瓦棒葺き等</small></span></label>
+              <label class="opt"><input type="radio" name="mat" value="cement"><span class="face">
+                <svg viewBox="0 0 52 34" aria-hidden="true"><path d="M2 30L26 6l24 24" fill="#7C8B7A"/><path d="M8 24h36M14 18h24" stroke="#A9B6A6" stroke-width="2" stroke-dasharray="4 2"/></svg>
+                セメント瓦<small>モニエル等</small></span></label>
+              <label class="opt"><input type="radio" name="mat" value="kawara"><span class="face">
+                <svg viewBox="0 0 52 34" aria-hidden="true"><path d="M2 30L26 6l24 24" fill="#3E4652"/><path d="M8 24h36M14 18h24" stroke="#6C7684" stroke-width="2.5" stroke-dasharray="3 3"/></svg>
+                日本瓦<small>粘土瓦</small></span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="q" style="border:0;padding:0;margin-inline:0;">
+            <legend class="q-label"><span class="no">Q2</span>建物の延床面積は？</legend>
+            <div class="range-row">
+              <input type="range" id="tsubo" name="tsubo" min="15" max="60" step="1" value="30" aria-describedby="tsuboVal">
+              <div class="range-val" id="tsuboVal">30坪<small>屋根面積 約120㎡</small></div>
+            </div>
+            <p class="note">わからない場合は30坪のままで目安を確認できます。</p>
+          </fieldset>
+
+          <fieldset class="q" style="border:0;padding:0;margin-inline:0;">
+            <legend class="q-label"><span class="no">Q3</span>屋根の形は？</legend>
+            <div class="opts c4">
+              <label class="opt"><input type="radio" name="shape" value="kirizuma" checked><span class="face">
+                <svg viewBox="0 0 52 34" aria-hidden="true"><path d="M4 30L26 6l22 24z" fill="#46566B"/></svg>切妻<small>三角屋根</small></span></label>
+              <label class="opt"><input type="radio" name="shape" value="yosemune"><span class="face">
+                <svg viewBox="0 0 52 34" aria-hidden="true"><path d="M2 30L16 8h20l14 22z" fill="#46566B"/></svg>寄棟<small>四方に傾斜</small></span></label>
+              <label class="opt"><input type="radio" name="shape" value="katanagare"><span class="face">
+                <svg viewBox="0 0 52 34" aria-hidden="true"><path d="M4 30L48 8v22z" fill="#46566B"/></svg>片流れ<small>一方向に傾斜</small></span></label>
+              <label class="opt"><input type="radio" name="shape" value="complex"><span class="face">
+                <svg viewBox="0 0 52 34" aria-hidden="true"><path d="M2 30L14 14l8 6 10-14 18 24z" fill="#46566B"/></svg>複合型<small>入り組んだ形</small></span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="q" style="border:0;padding:0;margin-inline:0;">
+            <legend class="q-label"><span class="no">Q4</span>築年数・屋根の状態は？</legend>
+            <div class="opts c4">
+              <label class="opt"><input type="radio" name="age" value="1" checked><span class="face">築10〜15年<small>色あせが気になる</small></span></label>
+              <label class="opt"><input type="radio" name="age" value="2"><span class="face">築16〜25年<small>ひび・コケ・サビ</small></span></label>
+              <label class="opt"><input type="radio" name="age" value="3"><span class="face">築26年以上<small>反り・割れが多い</small></span></label>
+              <label class="opt"><input type="radio" name="age" value="4"><span class="face">雨漏りしている<small>天井にシミ等</small></span></label>
+            </div>
+          </fieldset>
+        </form>
+
+        <div class="result" id="result" aria-live="polite">
+          <div class="result-top">
+            <div>
+              <div class="reco-label">あなたのお住まいにおすすめの工法</div>
+              <div class="reco-name" id="recoName">屋根塗装</div>
+              <div class="reco-price" id="recoPrice">約00〜00<small>万円（税込・足場代込）</small></div>
+            </div>
+            <div class="reco-why" id="recoWhy">—</div>
+          </div>
+
+          <div class="compare" id="compare"></div>
+
+          <div class="result-cta">
+            <a href="#contact" class="btn btn-primary btn-lg" id="toForm">この条件で正式見積りを依頼（無料）</a>
+            <a href="tel:0120000123" class="btn btn-navy btn-lg">📞 電話で結果を相談する</a>
+          </div>
+          <p class="note">※表示金額は一般的な単価と屋根面積の目安から算出した概算です。勾配・下地の傷み・付帯工事（雨樋・板金・太陽光脱着等）により変動します。正式金額は現地診断後にご提示します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHODS -->
+  <section>
+    <div class="wrap">
+      <div class="sec-title">
+        <span class="en">METHOD</span>
+        <h2>3つの工法、<em>何が違う？</em></h2>
+        <p>「安さ」だけで選ぶと、数年後に再工事が必要になることも。屋根の状態に合う工法を選ぶことが一番の節約です。</p>
+      </div>
+      <div class="table-scroll">
+        <table class="methods">
+          <thead>
+            <tr><th scope="col">比較項目</th><th scope="col">屋根塗装</th><th scope="col">カバー工法（重ね葺き）</th><th scope="col">葺き替え</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">費用目安（30坪）</th><td><span class="mk">40〜80万円</span></td><td><span class="mk">90〜150万円</span></td><td><span class="mk">130〜220万円</span></td></tr>
+            <tr><th scope="row">次のメンテまで</th><td>10〜20年<br><span class="small">塗料グレードで変動</span></td><td>25〜35年</td><td>30〜50年</td></tr>
+            <tr><th scope="row">工期</th><td>7〜10日</td><td>5〜8日</td><td>7〜14日</td></tr>
+            <tr><th scope="row">向いている屋根</th><td class="small">築10〜15年前後で<br>素材自体は健全</td><td class="small">スレートの割れ・反りが多い<br>アスベスト含有の可能性あり</td><td class="small">雨漏り・下地の腐食<br>日本瓦の全面改修</td></tr>
+            <tr><th scope="row">メリット</th><td class="small">費用を最も抑えられる<br>遮熱塗料で室温対策も</td><td class="small">撤去費・廃材処分が少ない<br>断熱・遮音性が向上</td><td class="small">下地から一新<br>屋根の軽量化も可能</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICE MENU -->
+  <section class="section-alt">
+    <div class="wrap">
+      <div class="sec-title">
+        <span class="en">PRICE</span>
+        <h2>屋根リフォーム<em>料金プラン</em></h2>
+        <p>延床30坪（屋根面積 約120㎡）の目安。足場・高圧洗浄・養生・廃材処分費をすべて含んだ総額表示です。</p>
+      </div>
+      <div class="menu-grid">
+        <div class="menu-card">
+          <div class="top"><small>コスト重視</small><h3>シリコン屋根塗装</h3></div>
+          <div class="mid">
+            <div class="p">48<small>万円〜（税込）</small></div>
+            <div class="spec"><span class="chip">耐用 約10〜13年</span><span class="chip">工期 約7日</span></div>
+            <ul><li>高圧洗浄・下地補修</li><li>下塗り＋上塗り2回</li><li>棟板金の釘打ち直し</li><li>縁切り（タスペーサー）</li></ul>
+          </div>
+        </div>
+        <div class="menu-card feat">
+          <div class="top"><small>人気No.1・夏の暑さ対策</small><h3>遮熱フッ素屋根塗装</h3></div>
+          <div class="mid">
+            <div class="p">68<small>万円〜（税込）</small></div>
+            <div class="spec"><span class="chip">耐用 約15〜20年</span><span class="chip">工期 約8日</span></div>
+            <ul><li>アステックペイントの高耐久遮熱塗料</li><li>屋根表面温度の上昇を抑制</li><li>下塗り＋上塗り2回</li><li>棟板金の釘打ち直し・シーリング</li></ul>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="top"><small>スレートの傷みが進行</small><h3>ガルバリウム カバー工法</h3></div>
+          <div class="mid">
+            <div class="p">110<small>万円〜（税込）</small></div>
+            <div class="spec"><span class="chip">耐用 約25〜35年</span><span class="chip">工期 約6日</span></div>
+            <ul><li>防水シート（ルーフィング）新設</li><li>断熱材一体型の金属屋根</li><li>棟・ケラバ板金交換</li><li>既存屋根の撤去・処分不要</li></ul>
+          </div>
+        </div>
+      </div>
+      <p class="note" style="text-align:center; margin-top:18px;">※価格・塗料名は表示例です。店舗の取扱商品と価格表に合わせて差し替えてください。</p>
+    </div>
+  </section>
+
+  <!-- SELF CHECK -->
+  <section>
+    <div class="wrap">
+      <div class="sec-title">
+        <span class="en">SELF CHECK</span>
+        <h2>屋根の<em>劣化度セルフチェック</em></h2>
+        <p>地上やベランダから見える範囲でOK。当てはまる項目をタップしてください。屋根には上らないでください。</p>
+      </div>
+      <div class="check-wrap">
+        <div class="check-list" id="checkList">
+          <label class="chk"><input type="checkbox" value="1"><span class="face"><span class="box"></span><span><b>色あせ・ツヤがない</b><small>塗膜の防水性が低下し始めています</small></span></span></label>
+          <label class="chk"><input type="checkbox" value="2"><span class="face"><span class="box"></span><span><b>コケ・カビ・藻がある</b><small>屋根材が水分を含んでいるサイン</small></span></span></label>
+          <label class="chk"><input type="checkbox" value="2"><span class="face"><span class="box"></span><span><b>金属部分にサビ</b><small>穴あきへ進行すると雨漏りの原因に</small></span></span></label>
+          <label class="chk"><input type="checkbox" value="3"><span class="face"><span class="box"></span><span><b>棟板金の浮き・釘抜け</b><small>台風時に飛散する恐れがあります</small></span></span></label>
+          <label class="chk"><input type="checkbox" value="3"><span class="face"><span class="box"></span><span><b>屋根材の割れ・反り</b><small>塗装では直せない場合があります</small></span></span></label>
+          <label class="chk"><input type="checkbox" value="2"><span class="face"><span class="box"></span><span><b>雨樋に屋根の粉や破片</b><small>表面の劣化が進んでいます</small></span></span></label>
+          <label class="chk"><input type="checkbox" value="4"><span class="face"><span class="box"></span><span><b>天井・壁に雨じみ</b><small>すでに雨水が侵入しています</small></span></span></label>
+          <label class="chk"><input type="checkbox" value="2"><span class="face"><span class="box"></span><span><b>前回工事から10年以上</b><small>新築時から未施工の場合も含む</small></span></span></label>
+        </div>
+        <div class="check-result" aria-live="polite">
+          <div style="font-size:.85rem; font-weight:700;">屋根の劣化度</div>
+          <div class="lv" id="lvNum">0<small> / 5</small></div>
+          <div class="meter"><i id="lvBar"></i></div>
+          <p id="lvText">チェックを入れると、劣化度と目安の対応時期が表示されます。</p>
+          <a href="#contact" class="btn btn-primary btn-block">無料ドローン診断で確かめる</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRENGTHS -->
+  <section class="section-alt">
+    <div class="wrap">
+      <div class="sec-title">
+        <span class="en">REASON</span>
+        <h2>プロタイムズ福岡中央店が<em>選ばれる理由</em></h2>
+      </div>
+      <div class="str-grid">
+        <div class="str"><div class="no">01</div><h3>屋根に上らないドローン診断</h3><p>屋根を傷めず、安全に全面を撮影。普段見えない屋根の状態を、写真付きの診断報告書でご確認いただけます。</p></div>
+        <div class="str"><div class="no">02</div><h3>工法を比べて選べる見積書</h3><p>塗装・カバー・葺き替えの中から、状態に合う工法を費用と耐用年数で比較提案。項目ごとの単価・数量まで明記します。</p></div>
+        <div class="str"><div class="no">03</div><h3>メーカー直送の高耐久塗料</h3><p>全国のプロタイムズ加盟店ネットワークを通じ、アステックペイントの遮熱・高耐久塗料を適正価格でご提供します。</p></div>
+        <div class="str"><div class="no">04</div><h3>工程ごとの写真報告</h3><p>下地補修・下塗り・上塗りなど、完成後に見えなくなる工程も写真で記録。手抜きのない施工をお約束します。</p></div>
+        <div class="str"><div class="no">05</div><h3>工事後も続く保証と点検</h3><p>工事内容に応じた保証書を発行し、定期点検でお住まいを見守ります。台風後の点検依頼にも対応します。</p></div>
+        <div class="str"><div class="no">06</div><h3>火災保険・補助金の申請サポート</h3><p>台風・雹など自然災害による被害は火災保険の対象になる場合があります。必要書類の作成までお手伝いします。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASES -->
+  <section>
+    <div class="wrap">
+      <div class="sec-title">
+        <span class="en">WORKS</span>
+        <h2>屋根リフォーム<em>施工事例</em></h2>
+        <p>シミュレーション結果と実際の費用感を比べてみてください。</p>
+      </div>
+      <div class="case-grid">
+        <article class="case">
+          <div class="ba"><div class="b"><span>BEFORE</span></div><div class="a"><span>AFTER</span></div></div>
+          <div class="case-body">
+            <div class="where">福岡市南区・築14年・32坪</div>
+            <h3>色あせたスレートを遮熱塗装で一新</h3>
+            <dl><dt>工法</dt><dd>遮熱フッ素屋根塗装</dd><dt>費用</dt><dd>72万円（税込）</dd><dt>工期</dt><dd>8日</dd></dl>
+          </div>
+        </article>
+        <article class="case">
+          <div class="ba"><div class="b"><span>BEFORE</span></div><div class="a"><span>AFTER</span></div></div>
+          <div class="case-body">
+            <div class="where">福岡市早良区・築27年・35坪</div>
+            <h3>割れが多いスレートをカバー工法で</h3>
+            <dl><dt>工法</dt><dd>ガルバリウム カバー工法</dd><dt>費用</dt><dd>128万円（税込）</dd><dt>工期</dt><dd>6日</dd></dl>
+          </div>
+        </article>
+        <article class="case">
+          <div class="ba"><div class="b"><span>BEFORE</span></div><div class="a"><span>AFTER</span></div></div>
+          <div class="case-body">
+            <div class="where">春日市・築38年・30坪</div>
+            <h3>雨漏りした瓦屋根を軽量金属へ葺き替え</h3>
+            <dl><dt>工法</dt><dd>葺き替え（日本瓦→金属）</dd><dt>費用</dt><dd>186万円（税込）</dd><dt>工期</dt><dd>11日</dd></dl>
+          </div>
+        </article>
+      </div>
+      <p class="note" style="text-align:center; margin-top:18px;">※事例は表示例です。実際の施工写真・金額に差し替えてください。</p>
+    </div>
+  </section>
+
+  <!-- INSURANCE / SUBSIDY -->
+  <section class="section-alt">
+    <div class="wrap">
+      <div class="sec-title">
+        <span class="en">SUPPORT</span>
+        <h2>費用負担を<em>抑える制度</em>もご案内</h2>
+      </div>
+      <div class="help-grid">
+        <div class="help"><h3>🌀 火災保険（風災・雹災）</h3><p>台風で棟板金が飛んだ、雹で屋根材が割れたなど、自然災害が原因の損害は保険金で修理できる場合があります。診断時に被害箇所を撮影し、申請に必要な報告書をご用意します。</p></div>
+        <div class="help"><h3>🏠 自治体のリフォーム補助金</h3><p>遮熱・断熱改修や耐震化（屋根の軽量化）が対象となる補助制度があります。お住まいの自治体で使える制度を確認し、申請スケジュールに合わせた工程をご提案します。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLOW -->
+  <section>
+    <div class="wrap">
+      <div class="sec-title">
+        <span class="en">FLOW</span>
+        <h2>お問い合わせから<em>完工まで</em></h2>
+      </div>
+      <ol class="flow">
+        <li><h3>お問い合わせ</h3><p>電話・フォームから。シミュレーション結果もそのまま送れます。</p></li>
+        <li><h3>ドローン診断</h3><p>約60分。屋根に上らず全面を撮影します。</p></li>
+        <li><h3>診断報告・見積り</h3><p>写真付き報告書と工法別の見積書をご説明。</p></li>
+        <li><h3>ご契約・近隣挨拶</h3><p>工程表をお渡しし、着工前にご近所へご挨拶。</p></li>
+        <li><h3>施工・完了検査</h3><p>工程写真を記録し、最終確認後にお引き渡し。</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section-alt">
+    <div class="wrap">
+      <div class="sec-title">
+        <span class="en">FAQ</span>
+        <h2>よくあるご質問</h2>
+      </div>
+      <div class="faq">
+        <details><summary>シミュレーションの金額で工事できますか？</summary><p>概算のため、勾配・下地の状態・付帯部の工事内容で前後します。現地診断のうえで確定金額をご提示し、追加費用が発生する場合は必ず事前にご説明します。</p></details>
+        <details><summary>屋根塗装とカバー工法、どちらを選べばいいですか？</summary><p>屋根材そのものが健全なら塗装、割れ・反りが多い場合や2004年以前のスレート（アスベスト含有の可能性）ではカバー工法が適しています。診断結果をもとに両方の見積りで比較できます。</p></details>
+        <details><summary>日本瓦は塗装できないのですか？</summary><p>粘土瓦は焼き物で塗装の必要がありません。漆喰の詰め直しや部分的な差し替え、下地の傷みが大きい場合は葺き直し・葺き替えをご提案します。</p></details>
+        <details><summary>工事中も家にいて大丈夫ですか？</summary><p>普段どおり生活いただけます。高圧洗浄や撤去作業の日は音が出るため、事前に工程表で日時をお知らせします。</p></details>
+        <details><summary>雨の日は工事できますか？</summary><p>塗装は品質確保のため雨天時は作業を中止します。カバー工法・葺き替えは、雨仕舞いを確保したうえで天候に合わせて進めます。工期には予備日を見込んでいます。</p></details>
+        <details><summary>見積り後に断っても大丈夫ですか？</summary><p>もちろん問題ありません。診断・見積りは無料で、他社との比較検討も歓迎しています。しつこい営業は一切行いません。</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="sec-title">
+        <span class="en">CONTACT</span>
+        <h2>無料ドローン屋根診断・お見積り</h2>
+        <p>シミュレーション結果を添えてお申し込みいただくと、ご提案がスムーズです。</p>
+      </div>
+      <div class="contact-grid">
+        <div class="tel-box">
+          <small>お電話でのご相談</small>
+          <a href="tel:0120000123" class="big">0120-000-123</a>
+          <small>受付 8:00〜19:00（年中無休）</small>
+          <ul>
+            <li>診断・お見積りは完全無料</li>
+            <li>他社のお見積りとの比較もOK</li>
+            <li>台風後の緊急点検にも対応</li>
+            <li>対応エリア：福岡市全区・春日市・大野城市・那珂川市・糟屋郡 ほか</li>
+          </ul>
+        </div>
+        <form class="quote" id="quoteForm">
+          <div class="sim-summary" id="simSummary"></div>
+          <input type="hidden" name="simulation" id="simHidden">
+          <div class="row2">
+            <div class="field"><label for="name">お名前<span class="req">必須</span></label><input id="name" name="name" type="text" placeholder="山田 太郎" required autocomplete="name"></div>
+            <div class="field"><label for="tel">電話番号<span class="req">必須</span></label><input id="tel" name="tel" type="tel" placeholder="090-0000-0000" required autocomplete="tel"></div>
+          </div>
+          <div class="field"><label for="addr">ご住所（市区町村まで）</label><input id="addr" name="addr" type="text" placeholder="福岡市中央区〇〇" autocomplete="address-level2"></div>
+          <div class="field">
+            <label for="kind">ご希望の内容</label>
+            <select id="kind" name="kind">
+              <option>無料ドローン屋根診断</option>
+              <option>屋根塗装の見積り</option>
+              <option>カバー工法の見積り</option>
+              <option>葺き替えの見積り</option>
+              <option>雨漏り修理</option>
+              <option>外壁と屋根をまとめて相談</option>
+            </select>
+          </div>
+          <div class="field"><label for="msg">ご相談内容（任意）</label><textarea id="msg" name="msg" placeholder="気になる症状やご希望の時期など"></textarea></div>
+          <p class="note" style="margin-bottom:14px;">ご入力の情報は、診断・お見積りのご連絡以外には使用しません。</p>
+          <button type="submit" class="btn btn-primary btn-block btn-lg">無料診断を申し込む</button>
+        </form>
+        <div class="form-done" id="formDone" style="grid-column:1/-1;">
+          <div class="ok">✓</div>
+          <h3>お申し込みありがとうございます</h3>
+          <p style="color:#D5DEEA; margin-top:8px;">担当者より1営業日以内にご連絡いたします。お急ぎの方は 0120-000-123 までお電話ください。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap footer-inner">
+    <div>© 2026 プロタイムズ福岡中央店</div>
+    <div>福岡県福岡市●●区〇〇1-2-3 ｜ 建設業許可：福岡県知事許可（般-00）第00000号（表示例）</div>
+  </div>
+</footer>
+
+<div class="mobile-cta">
+  <a href="#simulator" class="btn btn-navy">費用を試算</a>
+  <a href="tel:0120000123" class="btn btn-primary">📞 無料相談</a>
+</div>
+
+<script>
+(function () {
+  // 単価（円/㎡・税込）と各種係数。店舗の価格表に合わせて調整する。
+  var METHODS = {
+    paint: { name: '屋根塗装', unit: [3200, 5200], life: '10〜20年', days: '7〜10日' },
+    cover: { name: 'カバー工法', unit: [7500, 10500], life: '25〜35年', days: '5〜8日' },
+    reroof: { name: '葺き替え', unit: [10500, 16000], life: '30〜50年', days: '7〜14日' }
+  };
+  var SCAFFOLD = [700, 900];      // 足場 円/㎡（外周面積換算）
+  var SHAPE = { kirizuma: 1.0, yosemune: 1.08, katanagare: 0.95, complex: 1.18 };
+  var MAT = {
+    slate:  { label: 'スレート', ok: { paint: 1, cover: 1, reroof: 1 } },
+    metal:  { label: '金属屋根', ok: { paint: 1, cover: 1, reroof: 1 } },
+    tin:    { label: 'トタン', ok: { paint: 1, cover: 1, reroof: 1 } },
+    cement: { label: 'セメント瓦', ok: { paint: 1, cover: 0, reroof: 1 } },
+    kawara: { label: '日本瓦', ok: { paint: 0, cover: 0, reroof: 1 } }
+  };
+  var AGE = { '1': '築10〜15年', '2': '築16〜25年', '3': '築26年以上', '4': '雨漏りあり' };
+  var SHAPE_LABEL = { kirizuma: '切妻', yosemune: '寄棟', katanagare: '片流れ', complex: '複合型' };
+
+  var form = document.getElementById('simForm');
+  var tsubo = document.getElementById('tsubo');
+
+  function val(name) { return form.querySelector('input[name="' + name + '"]:checked').value; }
+  function man(yen) { return Math.round(yen / 10000); }
+
+  function recommend(mat, age) {
+    if (mat === 'kawara') return 'reroof';
+    if (age === '4') return 'reroof';
+    if (age === '3') return MAT[mat].ok.cover ? 'cover' : 'reroof';
+    if (age === '2') return (mat === 'slate' || mat === 'tin') ? 'cover' : 'paint';
+    return 'paint';
+  }
+
+  function reason(mat, age, key) {
+    if (mat === 'kawara') return '日本瓦は塗装不要の素材です。下地や漆喰の傷みが進んでいる場合は、軽量な金属屋根への葺き替えで耐震性も高められます。部分補修で済むケースもあるため、まずは診断がおすすめです。';
+    if (age === '4') return '雨漏りがある場合、屋根下の防水シートや野地板が傷んでいる可能性が高く、表面の塗装では解決しません。下地から新しくする葺き替えが確実です。';
+    if (key === 'cover') return MAT[mat].label + 'の割れ・反りやサビが進む時期です。既存屋根の上に断熱材付き金属屋根を重ねるカバー工法なら、撤去費を抑えつつ30年前後安心できます。';
+    if (key === 'reroof') return 'セメント瓦の傷みが進んでいる場合、カバー工法は適しません。軽量な屋根材への葺き替えをおすすめします。';
+    return '屋根材自体はまだ健全な時期です。塗装で防水性を回復させれば、費用を抑えて10年以上長持ちさせられます。遮熱塗料なら夏の室温対策にも。';
+  }
+
+  function calc() {
+    var t = +tsubo.value;
+    var mat = val('mat'), shape = val('shape'), age = val('age');
+    var area = Math.round(t * 3.3 * 1.2 * SHAPE[shape]);          // 屋根面積の目安
+    var wall = Math.round(Math.sqrt(t * 3.3 / 2) * 4 * 6.5);        // 足場架面積の目安（2階建）
+    document.getElementById('tsuboVal').innerHTML = t + '坪<small>屋根面積 約' + area + '㎡</small>';
+
+    var best = recommend(mat, age);
+    var prices = {};
+    Object.keys(METHODS).forEach(function (k) {
+      var m = METHODS[k];
+      prices[k] = [
+        man(area * m.unit[0] + wall * SCAFFOLD[0]),
+        man(area * m.unit[1] + wall * SCAFFOLD[1])
+      ];
+    });
+    var maxHi = Math.max(prices.paint[1], prices.cover[1], prices.reroof[1]);
+
+    document.getElementById('recoName').textContent = METHODS[best].name;
+    document.getElementById('recoPrice').innerHTML = '約' + prices[best][0] + '〜' + prices[best][1] + '<small>万円（税込・足場代込）</small>';
+    document.getElementById('recoWhy').textContent = reason(mat, age, best);
+
+    var html = '';
+    Object.keys(METHODS).forEach(function (k) {
+      var m = METHODS[k], ok = MAT[mat].ok[k];
+      var cls = 'cmp' + (k === best ? ' best' : '') + (ok ? '' : ' na');
+      html += '<div class="' + cls + '"><h4>' + m.name + '</h4>' +
+        '<div class="price">' + (ok ? prices[k][0] + '〜' + prices[k][1] + '<small style="font-size:.7rem">万円</small>' : '対象外') + '</div>' +
+        '<div class="bar"><i style="width:' + (ok ? Math.round(prices[k][1] / maxHi * 100) : 0) + '%"></i></div>' +
+        '<dl><dt>耐用年数</dt><dd>' + m.life + '</dd><dt>工期</dt><dd>' + m.days + '</dd></dl>' +
+        (ok ? '' : '<p class="note" style="margin-top:6px;">' + MAT[mat].label + 'には適さない工法です</p>') +
+        '</div>';
+    });
+    document.getElementById('compare').innerHTML = html;
+
+    var summary = MAT[mat].label + '／' + t + '坪／' + SHAPE_LABEL[shape] + '／' + AGE[age] +
+      ' → おすすめ：' + METHODS[best].name + '（約' + prices[best][0] + '〜' + prices[best][1] + '万円）';
+    document.getElementById('simHidden').value = summary;
+    var box = document.getElementById('simSummary');
+    box.innerHTML = '<b>シミュレーション結果を添付します</b><br>' + summary;
+
+    var kind = document.getElementById('kind');
+    kind.selectedIndex = age === '4' ? 4 : ({ paint: 1, cover: 2, reroof: 3 })[best];
+  }
+
+  form.addEventListener('change', calc);
+  tsubo.addEventListener('input', calc);
+  document.getElementById('toForm').addEventListener('click', function () {
+    document.getElementById('simSummary').classList.add('on');
+  });
+  calc();
+
+  // 劣化度セルフチェック
+  var list = document.getElementById('checkList');
+  list.addEventListener('change', function () {
+    var score = 0;
+    list.querySelectorAll('input:checked').forEach(function (c) { score += +c.value; });
+    var lv = score === 0 ? 0 : score <= 2 ? 1 : score <= 5 ? 2 : score <= 8 ? 3 : score <= 11 ? 4 : 5;
+    var text = [
+      'チェックを入れると、劣化度と目安の対応時期が表示されます。',
+      '軽度の劣化です。2〜3年以内の点検・塗装計画をおすすめします。',
+      '塗膜の防水性が落ちています。1〜2年以内の屋根塗装が目安です。',
+      '屋根材や板金の傷みが進行しています。早めの診断で工法の見極めを。',
+      '塗装では対応できない可能性があります。カバー工法・葺き替えの検討時期です。',
+      '雨水が侵入している恐れがあります。被害拡大を防ぐため、すぐにご相談ください。'
+    ];
+    document.getElementById('lvNum').innerHTML = lv + '<small> / 5</small>';
+    document.getElementById('lvBar').style.width = (lv / 5 * 100) + '%';
+    document.getElementById('lvText').textContent = text[lv];
+  });
+
+  document.getElementById('quoteForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    this.style.display = 'none';
+    document.getElementById('formDone').style.display = 'block';
+  });
+})();
+</script>
+</body>
+</html>
