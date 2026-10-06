@@ -139,8 +139,6 @@
   .hero h1 { font-size: clamp(1.75rem, 4vw, 2.8rem); font-weight: 900; line-height: 1.3; }
   .hero h1 .hl { color: var(--accent); }
   .hero-lead { margin: 20px 0 28px; color: var(--ink-soft); font-size: 1.02rem; max-width: 32em; }
-  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
-  .hero-actions .btn-ghost { border-color: rgba(255,255,255,.5); color: #fff; }
   .hero-badges { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
   .medal {
     aspect-ratio: 1; border-radius: 50%; background: var(--bg-elevated); color: var(--accent-deep);
@@ -150,11 +148,6 @@
   }
   .medal small { font-size: 0.68rem; font-weight: 700; color: var(--ink-soft); display: block; line-height: 1.3; }
   .medal b { font-family: "Zen Kaku Gothic New", sans-serif; font-size: clamp(1.2rem, 2.4vw, 1.7rem); font-weight: 900; line-height: 1.15; display: block; }
-  .hero-sim-card {
-    margin-top: 16px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.2);
-    border-radius: 12px; padding: 16px 18px; font-size: 0.85rem; color: #D5DEEA;
-  }
-  .hero-sim-card strong { color: #fff; }
 
   /* Simulator */
   .sim { background: var(--surface); }
@@ -174,54 +167,10 @@
   .q-label .no {
     background: var(--accent); color: #fff; font-size: 0.75rem; border-radius: 4px; padding: 2px 8px; letter-spacing: .05em;
   }
-  .opts { display: grid; gap: 10px; }
-  .opts.c5 { grid-template-columns: repeat(5, 1fr); }
-  .opts.c4 { grid-template-columns: repeat(4, 1fr); }
-  .opt input { position: absolute; opacity: 0; pointer-events: none; }
-  .opt { position: relative; display: block; }
-  .opt .face {
-    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
-    text-align: center; min-height: 100%;
-    border: 2px solid var(--line); border-radius: 10px; padding: 14px 8px; cursor: pointer;
-    font-weight: 700; font-size: 0.9rem; transition: border-color .15s, background .15s; background: var(--bg-elevated);
-  }
-  .opt .face small { font-weight: 400; font-size: 0.72rem; color: var(--muted); line-height: 1.4; }
-  .opt .face svg { width: 52px; height: 34px; }
-  .opt input:checked + .face { border-color: var(--accent); background: var(--accent-soft); }
-  .opt input:focus-visible + .face { outline: 3px solid var(--accent-deep); outline-offset: 2px; }
-  .range-row { display: flex; align-items: center; gap: 18px; }
-  .range-row input[type=range] { flex: 1; accent-color: var(--accent); height: 28px; }
-  .range-val { min-width: 150px; text-align: right; font-weight: 900; font-size: 1.5rem; font-family: "Zen Kaku Gothic New", sans-serif; color: var(--accent-deep); font-variant-numeric: tabular-nums; }
-  .range-val small { font-size: 0.75rem; color: var(--muted); font-weight: 500; display: block; }
 
   /* Result */
   .result { border-top: 6px solid var(--accent); background: var(--surface); padding: 32px 28px; }
-  .result-top { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center; margin-bottom: 26px; }
   .reco-label { font-size: 0.85rem; font-weight: 700; color: var(--ink-soft); }
-  .reco-name { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 900; color: var(--green); font-family: "Zen Kaku Gothic New", sans-serif; }
-  :root[data-theme="dark"] .reco-name { color: var(--accent-deep); }
-  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .reco-name { color: var(--accent-deep); } }
-  .reco-price { font-family: "Zen Kaku Gothic New", sans-serif; font-weight: 900; font-size: clamp(1.9rem, 4.4vw, 2.8rem); color: var(--accent-deep); line-height: 1.2; font-variant-numeric: tabular-nums; }
-  .reco-price small { font-size: 0.9rem; color: var(--ink-soft); }
-  .reco-why { background: var(--bg-elevated); border-left: 4px solid var(--accent); padding: 14px 18px; border-radius: 6px; font-size: 0.9rem; color: var(--ink-soft); }
-  .compare { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-  .cmp {
-    background: var(--bg-elevated); border: 2px solid var(--line); border-radius: 12px; padding: 18px; position: relative;
-  }
-  .cmp.best { border-color: var(--accent); }
-  .cmp.best::before {
-    content: "おすすめ"; position: absolute; top: -12px; left: 16px; background: var(--accent); color: #fff;
-    font-size: 0.72rem; font-weight: 700; padding: 2px 10px; border-radius: 4px;
-  }
-  .cmp.na { opacity: .55; }
-  .cmp h4 { margin: 0 0 6px; font-size: 1rem; }
-  .cmp .price { font-family: "Zen Kaku Gothic New", sans-serif; font-weight: 900; font-size: 1.3rem; font-variant-numeric: tabular-nums; }
-  .cmp .bar { height: 8px; border-radius: 4px; background: var(--surface-2); margin: 10px 0; overflow: hidden; }
-  .cmp .bar i { display: block; height: 100%; background: var(--green); border-radius: 4px; transition: width .4s ease; }
-  .cmp.best .bar i { background: var(--accent); }
-  .cmp dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; font-size: 0.8rem; color: var(--ink-soft); }
-  .cmp dt { color: var(--muted); }
-  .cmp dd { margin: 0; font-weight: 700; color: var(--ink); }
   .result-cta { margin-top: 26px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .result .note { margin-top: 14px; }
 
@@ -335,8 +284,6 @@
   .tel-box li { padding: 4px 0; }
   .tel-box li::before { content: "● "; color: var(--accent); font-size: 0.7rem; }
   form.quote { background: var(--bg-elevated); color: var(--ink); border-radius: 14px; padding: 28px; }
-  .sim-summary { display: none; background: var(--accent-soft); border: 1px solid var(--accent); border-radius: 8px; padding: 12px 14px; font-size: 0.85rem; margin-bottom: 18px; }
-  .sim-summary.on { display: block; }
   .field { margin-bottom: 16px; }
   .field label { display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px; }
   .field label .req { background: var(--ng); color: #fff; font-size: 0.68rem; padding: 1px 6px; border-radius: 3px; margin-left: 6px; }
@@ -496,14 +443,77 @@
     .staff-row { grid-template-columns: repeat(2, 1fr); }
   }
 
+  /* 見積シミュレーター（7問・2プラン） */
+  .sim-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 0.85rem; color: var(--muted); margin-bottom: 8px; }
+  .linkbtn { background: none; border: 0; color: var(--accent-deep); font: inherit; text-decoration: underline; cursor: pointer; padding: 4px; }
+  .sq { padding: 22px 0; border-top: 1px dashed var(--line); transition: opacity .15s; }
+  .sq:first-child { border-top: 0; padding-top: 6px; }
+  .sq.locked { opacity: .5; }
+  .sq .hint { font-size: 0.82rem; color: var(--muted); margin: -6px 0 12px; }
+  .choices { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  .choice {
+    position: relative; text-align: left; display: grid; gap: 2px; align-content: center; min-height: 64px;
+    border: 2px solid var(--line); border-radius: 10px; padding: 12px 14px; cursor: pointer;
+    background: var(--bg-elevated); color: var(--ink); font: inherit; transition: border-color .15s, background .15s;
+  }
+  .choice b { font-family: "Zen Kaku Gothic New", sans-serif; font-size: 1rem; }
+  .choice span { font-size: 0.74rem; color: var(--muted); line-height: 1.4; }
+  .choice:hover:not(:disabled) { border-color: var(--accent); }
+  .choice:focus-visible { outline: 3px solid var(--accent-deep); outline-offset: 2px; }
+  .choice[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); }
+  .choice[aria-pressed="true"]::after { content: "✓"; position: absolute; top: 8px; right: 10px; font-weight: 900; color: var(--accent); }
+  .choice:disabled { cursor: not-allowed; opacity: .38; }
+  .sim-notice { margin-top: 12px; background: var(--accent-soft); color: var(--ink); border-left: 4px solid var(--accent); border-radius: 6px; padding: 12px 14px; font-size: 0.88rem; }
+  .sim-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 12px; }
+  .sim-chips span { font-size: 0.75rem; background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 999px; padding: 2px 10px; }
+  .sim-areas { display: flex; gap: 20px; flex-wrap: wrap; font-size: 0.88rem; color: var(--ink-soft); margin-bottom: 18px; }
+  .sim-areas b { color: var(--ink); font-variant-numeric: tabular-nums; }
+  .plans { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .plan { background: var(--bg-elevated); border: 1px solid var(--line); border-top: 6px solid var(--c); border-radius: 12px; padding: 20px; display: grid; gap: 12px; align-content: start; min-width: 0; }
+  .plan.a { --c: var(--green); } .plan.b { --c: var(--accent); }
+  .plan h3 { font-size: 1.1rem; font-weight: 900; color: var(--c); }
+  .plan h3 small { display: block; font-size: 0.78rem; color: var(--muted); font-weight: 500; }
+  .plan .yen { font-family: "Zen Kaku Gothic New", sans-serif; font-weight: 900; font-size: clamp(1.9rem, 4.4vw, 2.5rem); line-height: 1.15; font-variant-numeric: tabular-nums; }
+  .plan .yen small { font-size: .45em; font-weight: 700; }
+  .plan .tax { font-size: 0.74rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+  table.breakdown { width: 100%; border-collapse: collapse; font-size: 0.84rem; }
+  .breakdown td { padding: 6px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .breakdown td:last-child { text-align: right; white-space: nowrap; padding-left: 10px; font-variant-numeric: tabular-nums; }
+  .breakdown tr.sub td { color: var(--muted); }
+  details.koji summary { cursor: pointer; font-size: 0.84rem; color: var(--accent-deep); font-weight: 700; }
+  details.koji ul { margin: 8px 0 0; padding-left: 18px; font-size: 0.84rem; color: var(--ink-soft); }
+  .sim-bar {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 70; background: var(--bg-elevated); border-top: 2px solid var(--accent);
+    padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); transform: translateY(110%); transition: transform .2s ease;
+    box-shadow: 0 -10px 30px -18px rgba(0,0,0,.4);
+  }
+  .sim-bar.on { transform: none; }
+  .sim-bar .in { max-width: 1120px; margin: 0 auto; display: flex; align-items: center; gap: 16px; justify-content: space-between; flex-wrap: wrap; }
+  .sim-bar .vals { display: flex; gap: 20px; flex-wrap: wrap; }
+  .sim-bar .v { display: grid; line-height: 1.3; }
+  .sim-bar .v small { font-size: 0.7rem; color: var(--muted); }
+  .sim-bar .v b { font-size: 1.15rem; font-variant-numeric: tabular-nums; }
+  .sim-bar .v.a b { color: var(--green); } .sim-bar .v.b b { color: var(--accent-deep); }
+  .sim-bar .btn { padding: 10px 20px; font-size: 0.88rem; }
+  .field textarea[readonly] { font-size: 0.8rem; color: var(--ink-soft); min-height: 150px; }
+  .chk-row { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 0.88rem; }
+  .chk-row label { display: flex; gap: 6px; align-items: center; font-weight: 400; margin: 0; }
+  .chk-row input { width: auto; }
+  .form-err { color: var(--ng); font-size: 0.85rem; margin-bottom: 10px; }
+  @media (max-width: 680px) {
+    .plans { grid-template-columns: 1fr; }
+    .choices { grid-template-columns: 1fr 1fr; }
+    .sim-bar .vals { gap: 14px; }
+    .sim-bar .btn { width: 100%; }
+  }
+
   .mobile-cta { display: none; }
 
   @media (max-width: 960px) {
-    .hero-grid, .check-wrap, .contact-grid, .result-top { grid-template-columns: 1fr; }
+    .hero-grid, .check-wrap, .contact-grid { grid-template-columns: 1fr; }
     .hero-badges { max-width: 420px; gap: 8px; }
     .menu-grid, .str-grid, .case-grid { grid-template-columns: 1fr 1fr; }
     .flow { grid-template-columns: 1fr 1fr; }
-    .opts.c5 { grid-template-columns: repeat(3, 1fr); }
     .check-result { position: static; }
     .tel-link { display: none; }
   }
@@ -513,12 +523,9 @@
     .header-inner { padding: 10px 16px; }
     .header-cta .btn { display: none; }
     .brand-text small { display: none; }
-    .opts.c5, .opts.c4 { grid-template-columns: repeat(2, 1fr); }
-    .compare, .menu-grid, .str-grid, .case-grid, .help-grid, .check-list, .result-cta, .row2 { grid-template-columns: 1fr; }
+    .menu-grid, .str-grid, .case-grid, .help-grid, .check-list, .result-cta, .row2 { grid-template-columns: 1fr; }
     .flow { grid-template-columns: 1fr; }
     .sim-body, .result { padding: 24px 18px; }
-    .range-row { flex-direction: column; align-items: stretch; gap: 6px; }
-    .range-val { text-align: left; }
     .mobile-cta {
       display: grid; grid-template-columns: 1fr 1fr; gap: 8px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
       padding: 8px 10px calc(8px + env(safe-area-inset-bottom)); background: var(--bg-elevated); border-top: 1px solid var(--line);
@@ -526,6 +533,8 @@
     .mobile-cta .btn { padding: 12px 8px; font-size: 0.88rem; }
     body { padding-bottom: 72px; }
   }
+  body.bar-on .mobile-cta { display: none; }
+
   @media (prefers-reduced-motion: reduce) {
     * { scroll-behavior: auto !important; transition: none !important; }
   }
@@ -582,16 +591,16 @@
     </div>
     <div class="wrap qs-wrap">
       <form class="qs" id="quickSearch">
-        <div class="qs-title"><b>🔍 今すぐ工事費用を調べる</b><span class="tag">個人情報の入力なし</span><span class="tag">3工法を同時比較</span></div>
+        <div class="qs-title"><b>🔍 今すぐ工事費用を調べる</b><span class="tag">個人情報の入力なし</span><span class="tag">価格重視・品質重視の2プランを比較</span></div>
         <div class="qs-row">
-          <div><label for="qsMat">屋根材</label>
-            <select id="qsMat"><option value="slate">スレート</option><option value="metal">金属屋根</option><option value="tin">トタン</option><option value="cement">セメント瓦</option><option value="kawara">日本瓦</option></select></div>
-          <div><label for="qsTsubo">延床面積</label>
-            <select id="qsTsubo"><option value="20">〜20坪</option><option value="25">25坪前後</option><option value="30" selected>30坪前後</option><option value="35">35坪前後</option><option value="40">40坪前後</option><option value="50">50坪以上</option></select></div>
-          <div><label for="qsShape">屋根の形</label>
-            <select id="qsShape"><option value="kirizuma">切妻</option><option value="yosemune">寄棟</option><option value="katanagare">片流れ</option><option value="complex">複合型</option></select></div>
-          <div><label for="qsAge">築年数・状態</label>
-            <select id="qsAge"><option value="1">築10〜15年</option><option value="2">築16〜25年</option><option value="3">築26年以上</option><option value="4">雨漏りしている</option></select></div>
+          <div><label for="qsFa">建坪（1階の床面積）</label>
+            <select id="qsFa"><option value="0">15坪</option><option value="1">20坪</option><option value="2">25坪</option><option value="3" selected>30坪</option><option value="4">35坪</option></select></div>
+          <div><label for="qsFn">階数</label>
+            <select id="qsFn"><option value="0">2階建て</option><option value="1">3階建て</option></select></div>
+          <div><label for="qsRt">屋根材</label>
+            <select id="qsRt"><option value="0">瓦屋根（セメント瓦）</option><option value="1">金属屋根</option><option value="2" selected>コロニアル（スレート）</option><option value="3">わからない</option></select></div>
+          <div><label for="qsRv">リフォーム方法</label>
+            <select id="qsRv"></select></div>
           <button type="submit" class="btn btn-primary">費用を調べる ▶</button>
         </div>
       </form>
@@ -636,88 +645,32 @@
       <div class="sec-title">
         <span class="en">PRICE SIMULATION</span>
         <h2>屋根リフォーム<em>費用シミュレーション</em></h2>
-        <p>4つの質問に答えるだけ。選択するたびに結果が自動で更新されます。</p>
+        <p>7つの質問に答えると、価格重視・品質重視の2プランで工事費の目安を表示します。入力は1分ほどで終わります。</p>
       </div>
 
       <div class="sim-box">
         <div class="sim-head">
-          <h3>お住まいの屋根について教えてください</h3>
-          <div class="progress" aria-hidden="true"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span></div>
+          <h3>お住まいについて教えてください</h3>
+          <div class="progress" id="simProgress" aria-hidden="true"></div>
         </div>
-        <form class="sim-body" id="simForm" onsubmit="return false;">
+        <div class="sim-body">
+          <div class="sim-toolbar"><span id="simStatus"></span><button type="button" class="linkbtn" id="simClear">回答をすべてクリア</button></div>
+          <div id="simQuestions"></div>
+        </div>
 
-          <fieldset class="q" style="border:0;padding:0;margin-inline:0;">
-            <legend class="q-label"><span class="no">Q1</span>今の屋根材は？</legend>
-            <div class="opts c5">
-              <label class="opt"><input type="radio" name="mat" value="slate" checked><span class="face">
-                <svg viewBox="0 0 52 34" aria-hidden="true"><path d="M2 30L26 6l24 24" fill="#5A6676"/><path d="M8 24h36M14 18h24" stroke="#8C98A8" stroke-width="1.5"/></svg>
-                スレート<small>コロニアル等</small></span></label>
-              <label class="opt"><input type="radio" name="mat" value="metal"><span class="face">
-                <svg viewBox="0 0 52 34" aria-hidden="true"><path d="M2 30L26 6l24 24" fill="#6E8297"/><path d="M14 18v12M22 10v20M30 10v20M38 18v12" stroke="#A8B7C7" stroke-width="1.5"/></svg>
-                金属屋根<small>ガルバリウム等</small></span></label>
-              <label class="opt"><input type="radio" name="mat" value="tin"><span class="face">
-                <svg viewBox="0 0 52 34" aria-hidden="true"><path d="M2 30L26 6l24 24" fill="#8A5A44"/><path d="M14 18v12M22 10v20M30 10v20M38 18v12" stroke="#B88A70" stroke-width="1.5"/></svg>
-                トタン<small>瓦棒葺き等</small></span></label>
-              <label class="opt"><input type="radio" name="mat" value="cement"><span class="face">
-                <svg viewBox="0 0 52 34" aria-hidden="true"><path d="M2 30L26 6l24 24" fill="#7C8B7A"/><path d="M8 24h36M14 18h24" stroke="#A9B6A6" stroke-width="2" stroke-dasharray="4 2"/></svg>
-                セメント瓦<small>モニエル等</small></span></label>
-              <label class="opt"><input type="radio" name="mat" value="kawara"><span class="face">
-                <svg viewBox="0 0 52 34" aria-hidden="true"><path d="M2 30L26 6l24 24" fill="#3E4652"/><path d="M8 24h36M14 18h24" stroke="#6C7684" stroke-width="2.5" stroke-dasharray="3 3"/></svg>
-                日本瓦<small>粘土瓦</small></span></label>
-            </div>
-          </fieldset>
-
-          <fieldset class="q" style="border:0;padding:0;margin-inline:0;">
-            <legend class="q-label"><span class="no">Q2</span>建物の延床面積は？</legend>
-            <div class="range-row">
-              <input type="range" id="tsubo" name="tsubo" min="15" max="60" step="1" value="30" aria-describedby="tsuboVal">
-              <div class="range-val" id="tsuboVal">30坪<small>屋根面積 約120㎡</small></div>
-            </div>
-            <p class="note">わからない場合は30坪のままで目安を確認できます。</p>
-          </fieldset>
-
-          <fieldset class="q" style="border:0;padding:0;margin-inline:0;">
-            <legend class="q-label"><span class="no">Q3</span>屋根の形は？</legend>
-            <div class="opts c4">
-              <label class="opt"><input type="radio" name="shape" value="kirizuma" checked><span class="face">
-                <svg viewBox="0 0 52 34" aria-hidden="true"><path d="M4 30L26 6l22 24z" fill="#7A7268"/></svg>切妻<small>三角屋根</small></span></label>
-              <label class="opt"><input type="radio" name="shape" value="yosemune"><span class="face">
-                <svg viewBox="0 0 52 34" aria-hidden="true"><path d="M2 30L16 8h20l14 22z" fill="#7A7268"/></svg>寄棟<small>四方に傾斜</small></span></label>
-              <label class="opt"><input type="radio" name="shape" value="katanagare"><span class="face">
-                <svg viewBox="0 0 52 34" aria-hidden="true"><path d="M4 30L48 8v22z" fill="#7A7268"/></svg>片流れ<small>一方向に傾斜</small></span></label>
-              <label class="opt"><input type="radio" name="shape" value="complex"><span class="face">
-                <svg viewBox="0 0 52 34" aria-hidden="true"><path d="M2 30L14 14l8 6 10-14 18 24z" fill="#7A7268"/></svg>複合型<small>入り組んだ形</small></span></label>
-            </div>
-          </fieldset>
-
-          <fieldset class="q" style="border:0;padding:0;margin-inline:0;">
-            <legend class="q-label"><span class="no">Q4</span>築年数・屋根の状態は？</legend>
-            <div class="opts c4">
-              <label class="opt"><input type="radio" name="age" value="1" checked><span class="face">築10〜15年<small>色あせが気になる</small></span></label>
-              <label class="opt"><input type="radio" name="age" value="2"><span class="face">築16〜25年<small>ひび・コケ・サビ</small></span></label>
-              <label class="opt"><input type="radio" name="age" value="3"><span class="face">築26年以上<small>反り・割れが多い</small></span></label>
-              <label class="opt"><input type="radio" name="age" value="4"><span class="face">雨漏りしている<small>天井にシミ等</small></span></label>
-            </div>
-          </fieldset>
-        </form>
-
-        <div class="result" id="result" aria-live="polite">
-          <div class="result-top">
-            <div>
-              <div class="reco-label">あなたのお住まいにおすすめの工法</div>
-              <div class="reco-name" id="recoName">屋根塗装</div>
-              <div class="reco-price" id="recoPrice">約00〜00<small>万円（税込・足場代込）</small></div>
-            </div>
-            <div class="reco-why" id="recoWhy">—</div>
+        <div class="result" id="result" hidden aria-live="polite">
+          <div class="reco-label">シミュレーション結果</div>
+          <div class="sim-chips" id="simSummary"></div>
+          <div class="sim-areas" id="simAreas"></div>
+          <div class="plans">
+            <article class="plan a" id="planA"></article>
+            <article class="plan b" id="planB"></article>
           </div>
-
-          <div class="compare" id="compare"></div>
-
           <div class="result-cta">
-            <a href="#contact" class="btn btn-primary btn-lg" id="toForm">この条件で正式見積りを依頼（無料）</a>
+            <a href="#contact" class="btn btn-primary btn-lg" id="toForm">この内容で無料見積りを依頼する</a>
             <a href="tel:0120000123" class="btn btn-green btn-lg">📞 電話で結果を相談する</a>
           </div>
-          <p class="note">※表示金額は一般的な単価と屋根面積の目安から算出した概算です。勾配・下地の傷み・付帯工事（雨樋・板金・太陽光脱着等）により変動します。正式金額は現地診断後にご提示します。</p>
+          <p class="note">※表示額は概算です。屋根の勾配や劣化状況、足場の設置条件によって変わります。正式なお見積りは現地調査のうえでご提示します。</p>
         </div>
       </div>
     </div>
@@ -737,7 +690,7 @@
             <tr><th scope="col">比較項目</th><th scope="col">屋根塗装</th><th scope="col">カバー工法（重ね葺き）</th><th scope="col">葺き替え</th></tr>
           </thead>
           <tbody>
-            <tr><th scope="row">費用目安（30坪）</th><td><span class="mk">40〜80万円</span></td><td><span class="mk">90〜150万円</span></td><td><span class="mk">130〜220万円</span></td></tr>
+            <tr><th scope="row">費用目安<br><span class="small">建坪30坪・2階建て</span></th><td><span class="mk">104〜115万円</span></td><td><span class="mk">148〜167万円</span></td><td><span class="mk">228〜256万円</span></td></tr>
             <tr><th scope="row">次のメンテまで</th><td>10〜20年<br><span class="small">塗料グレードで変動</span></td><td>25〜35年</td><td>30〜50年</td></tr>
             <tr><th scope="row">工期</th><td>7〜10日</td><td>5〜8日</td><td>7〜14日</td></tr>
             <tr><th scope="row">向いている屋根</th><td class="small">築10〜15年前後で<br>素材自体は健全</td><td class="small">スレートの割れ・反りが多い<br>アスベスト含有の可能性あり</td><td class="small">雨漏り・下地の腐食<br>日本瓦の全面改修</td></tr>
@@ -754,29 +707,29 @@
       <div class="sec-title">
         <span class="en">PRICE</span>
         <h2>屋根工事の<em>定額料金表</em></h2>
-        <p>延床30坪（屋根面積 約120㎡）の目安。足場・高圧洗浄・養生・廃材処分費をすべて含んだ総額表示です。</p>
+        <p>建坪30坪・2階建て・下屋根なし・屋根面4〜7面・スレート屋根（屋根面積 約110㎡）の目安。足場・板金・諸経費を含む税込総額です。</p>
       </div>
       <div class="menu-grid">
         <div class="menu-card">
-          <div class="top"><small>コスト重視</small><h3>シリコン屋根塗装</h3></div>
+          <div class="top"><small>プランA・価格重視</small><h3>シリコン屋根塗装</h3></div>
           <div class="mid">
-            <div class="p">48<small>万円〜（税込）</small></div>
+            <div class="p">104<small>万円〜（税込）</small></div>
             <div class="spec"><span class="chip">耐用 約10〜13年</span><span class="chip">工期 約7日</span></div>
             <ul><li>高圧洗浄・下地補修</li><li>下塗り＋上塗り2回</li><li>棟板金の釘打ち直し</li><li>縁切り（タスペーサー）</li></ul>
           </div>
         </div>
         <div class="menu-card feat">
-          <div class="top"><small>人気No.1・夏の暑さ対策</small><h3>遮熱フッ素屋根塗装</h3></div>
+          <div class="top"><small>プランB・品質重視</small><h3>フッ素屋根塗装</h3></div>
           <div class="mid">
-            <div class="p">68<small>万円〜（税込）</small></div>
+            <div class="p">115<small>万円〜（税込）</small></div>
             <div class="spec"><span class="chip">耐用 約15〜20年</span><span class="chip">工期 約8日</span></div>
-            <ul><li>アステックペイントの高耐久遮熱塗料</li><li>屋根表面温度の上昇を抑制</li><li>下塗り＋上塗り2回</li><li>棟板金の釘打ち直し・シーリング</li></ul>
+            <ul><li>高耐候フッ素系塗料</li><li>アステックペイントの製品から選定</li><li>下塗り＋上塗り2回</li><li>棟板金の釘打ち直し・シーリング</li></ul>
           </div>
         </div>
         <div class="menu-card">
-          <div class="top"><small>スレートの傷みが進行</small><h3>ガルバリウム カバー工法</h3></div>
+          <div class="top"><small>プランA・スレートの傷みが進行</small><h3>金属屋根 カバー工法</h3></div>
           <div class="mid">
-            <div class="p">110<small>万円〜（税込）</small></div>
+            <div class="p">148<small>万円〜（税込）</small></div>
             <div class="spec"><span class="chip">耐用 約25〜35年</span><span class="chip">工期 約6日</span></div>
             <ul><li>防水シート（ルーフィング）新設</li><li>断熱材一体型の金属屋根</li><li>棟・ケラバ板金交換</li><li>既存屋根の撤去・処分不要</li></ul>
           </div>
@@ -795,9 +748,9 @@
           <div class="unit"><span class="ic"><svg viewBox="0 0 44 44" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 14l16 14 16-14" /><path d="M22 28v8" stroke="#FFE1A8"/></svg></span><b>谷樋交換</b><span class="yen">8万円〜</span><small>1mあたり 12,000円</small></div>
           <div class="unit"><span class="ic"><svg viewBox="0 0 44 44" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 24L22 10l16 14"/><rect x="18" y="20" width="8" height="8" stroke="#FFE1A8"/></svg></span><b>天窓まわり補修</b><span class="yen">8万円〜</span><small>1か所</small></div>
           <div class="unit"><span class="ic"><svg viewBox="0 0 44 44" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 8c5 7 8 11 8 15a8 8 0 0 1-16 0c0-4 3-8 8-15z" stroke="#FFE1A8"/></svg></span><b>雨漏り調査</b><span class="yen">0円</span><small>散水調査は別途</small></div>
-          <div class="unit"><span class="ic"><svg viewBox="0 0 44 44" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 24L22 10l16 14"/><path d="M28 30l6-6 2 2-6 6z" stroke="#FFE1A8"/></svg></span><b>屋根塗装</b><span class="yen">48万円〜</span><small>30坪・足場込</small></div>
-          <div class="unit"><span class="ic"><svg viewBox="0 0 44 44" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 24L22 10l16 14"/><path d="M6 30L22 16l16 14" stroke="#FFE1A8"/></svg></span><b>カバー工法</b><span class="yen">110万円〜</span><small>30坪・足場込</small></div>
-          <div class="unit"><span class="ic"><svg viewBox="0 0 44 44" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 24L22 10l16 14"/><path d="M12 34V22M22 34V18M32 34V22" stroke="#FFE1A8"/></svg></span><b>葺き替え</b><span class="yen">150万円〜</span><small>30坪・足場込</small></div>
+          <div class="unit"><span class="ic"><svg viewBox="0 0 44 44" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 24L22 10l16 14"/><path d="M28 30l6-6 2 2-6 6z" stroke="#FFE1A8"/></svg></span><b>屋根塗装</b><span class="yen">104万円〜</span><small>建坪30坪・足場込</small></div>
+          <div class="unit"><span class="ic"><svg viewBox="0 0 44 44" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 24L22 10l16 14"/><path d="M6 30L22 16l16 14" stroke="#FFE1A8"/></svg></span><b>カバー工法</b><span class="yen">148万円〜</span><small>建坪30坪・足場込</small></div>
+          <div class="unit"><span class="ic"><svg viewBox="0 0 44 44" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 24L22 10l16 14"/><path d="M12 34V22M22 34V18M32 34V22" stroke="#FFE1A8"/></svg></span><b>葺き替え</b><span class="yen">228万円〜</span><small>建坪30坪・足場込</small></div>
         </div>
       </div>
       <p class="note" style="text-align:center; margin-top:18px;">※価格・塗料名は表示例です。店舗の取扱商品と価格表に合わせて差し替えてください。</p>
@@ -1001,7 +954,7 @@
         <h2>よくあるご質問</h2>
       </div>
       <div class="faq">
-        <details><summary>シミュレーションの金額で工事できますか？</summary><p>概算のため、勾配・下地の状態・付帯部の工事内容で前後します。現地診断のうえで確定金額をご提示し、追加費用が発生する場合は必ず事前にご説明します。</p></details>
+        <details><summary>シミュレーションの金額で工事できますか？</summary><p>概算のため、屋根の勾配や劣化状況、足場の設置条件で前後します。現地診断のうえで確定金額をご提示し、追加費用が発生する場合は必ず事前にご説明します。</p></details>
         <details><summary>屋根塗装とカバー工法、どちらを選べばいいですか？</summary><p>屋根材そのものが健全なら塗装、割れ・反りが多い場合や2004年以前のスレート（アスベスト含有の可能性）ではカバー工法が適しています。診断結果をもとに両方の見積りで比較できます。</p></details>
         <details><summary>日本瓦は塗装できないのですか？</summary><p>粘土瓦は焼き物で塗装の必要がありません。漆喰の詰め直しや部分的な差し替え、下地の傷みが大きい場合は葺き直し・葺き替えをご提案します。</p></details>
         <details><summary>工事中も家にいて大丈夫ですか？</summary><p>普段どおり生活いただけます。高圧洗浄や撤去作業の日は音が出るため、事前に工程表で日時をお知らせします。</p></details>
@@ -1031,27 +984,30 @@
             <li>対応エリア：福岡市全区・春日市・大野城市・那珂川市・糟屋郡 ほか</li>
           </ul>
         </div>
-        <form class="quote" id="quoteForm">
-          <div class="sim-summary" id="simSummary"></div>
-          <input type="hidden" name="simulation" id="simHidden">
+        <form class="quote" id="quoteForm" novalidate>
+          <div class="field"><label for="simResult">シミュレーション結果（自動入力）</label><textarea id="simResult" name="simulation" readonly>まだシミュレーションが完了していません。</textarea></div>
+          <fieldset class="field" style="border:0;padding:0;margin:0 0 16px;">
+            <legend style="font-size:.85rem;font-weight:700;margin-bottom:6px;">ご希望の工事（複数選択可）</legend>
+            <div class="chk-row" id="workOpts"></div>
+          </fieldset>
           <div class="row2">
             <div class="field"><label for="name">お名前<span class="req">必須</span></label><input id="name" name="name" type="text" placeholder="山田 太郎" required autocomplete="name"></div>
             <div class="field"><label for="tel">電話番号<span class="req">必須</span></label><input id="tel" name="tel" type="tel" placeholder="090-0000-0000" required autocomplete="tel"></div>
           </div>
-          <div class="field"><label for="addr">ご住所（市区町村まで）</label><input id="addr" name="addr" type="text" placeholder="福岡市中央区〇〇" autocomplete="address-level2"></div>
-          <div class="field">
-            <label for="kind">ご希望の内容</label>
-            <select id="kind" name="kind">
-              <option>無料ドローン屋根診断</option>
-              <option>屋根塗装の見積り</option>
-              <option>カバー工法の見積り</option>
-              <option>葺き替えの見積り</option>
-              <option>雨漏り修理</option>
-              <option>外壁と屋根をまとめて相談</option>
-            </select>
+          <div class="row2">
+            <div class="field"><label for="email">メールアドレス<span class="req">必須</span></label><input id="email" name="email" type="email" placeholder="example@mail.com" required autocomplete="email"></div>
+            <div class="field"><label for="addr">工事予定地の住所<span class="req">必須</span></label><input id="addr" name="addr" type="text" placeholder="福岡市中央区〇〇" required autocomplete="street-address"></div>
           </div>
-          <div class="field"><label for="msg">ご相談内容（任意）</label><textarea id="msg" name="msg" placeholder="気になる症状やご希望の時期など"></textarea></div>
-          <p class="note" style="margin-bottom:14px;">ご入力の情報は、診断・お見積りのご連絡以外には使用しません。</p>
+          <div class="row2">
+            <fieldset class="field" style="border:0;padding:0;margin:0 0 16px;"><legend style="font-size:.85rem;font-weight:700;margin-bottom:6px;">築年数</legend><div class="chk-row" id="ageOpts"></div></fieldset>
+            <fieldset class="field" style="border:0;padding:0;margin:0 0 16px;"><legend style="font-size:.85rem;font-weight:700;margin-bottom:6px;">雨漏りの有無</legend><div class="chk-row" id="leakOpts"></div></fieldset>
+            <fieldset class="field" style="border:0;padding:0;margin:0 0 16px;"><legend style="font-size:.85rem;font-weight:700;margin-bottom:6px;">ご希望の連絡方法</legend><div class="chk-row" id="contactOpts"></div></fieldset>
+            <fieldset class="field" style="border:0;padding:0;margin:0 0 16px;"><legend style="font-size:.85rem;font-weight:700;margin-bottom:6px;">現地調査の希望日</legend><div class="chk-row" id="dayOpts"></div></fieldset>
+          </div>
+          <div class="field"><label for="photo">建物の写真（任意・3枚まで）</label><input id="photo" name="photo" type="file" accept="image/*" multiple></div>
+          <div class="field"><label for="msg">ご質問・ご要望</label><textarea id="msg" name="msg" placeholder="気になる症状やご希望の時期など"></textarea></div>
+          <label class="chk-row" style="margin-bottom:10px;"><input type="checkbox" id="agree"> 個人情報の取り扱いに同意する</label>
+          <p class="form-err" id="formErr" hidden></p>
           <button type="submit" class="btn btn-primary btn-block btn-lg">無料診断を申し込む</button>
         </form>
         <div class="form-done" id="formDone" style="grid-column:1/-1;">
@@ -1073,6 +1029,13 @@
   </div>
 </footer>
 
+<div class="sim-bar" id="simBar" role="status" aria-live="polite">
+  <div class="in">
+    <div class="vals" id="barVals"></div>
+    <button type="button" class="btn btn-primary" id="barBtn">結果を見る</button>
+  </div>
+</div>
+
 <div class="mobile-cta">
   <a href="#simulator" class="btn btn-green">費用を試算</a>
   <a href="tel:0120000123" class="btn btn-primary">📞 無料相談</a>
@@ -1080,109 +1043,217 @@
 
 <script>
 (function () {
-  // 単価（円/㎡・税込）と各種係数。店舗の価格表に合わせて調整する。
-  var METHODS = {
-    paint: { name: '屋根塗装', unit: [3200, 5200], life: '10〜20年', days: '7〜10日' },
-    cover: { name: 'カバー工法', unit: [7500, 10500], life: '25〜35年', days: '5〜8日' },
-    reroof: { name: '葺き替え', unit: [10500, 16000], life: '30〜50年', days: '7〜14日' }
-  };
-  var SCAFFOLD = [700, 900];      // 足場 円/㎡（外周面積換算）
-  var SHAPE = { kirizuma: 1.0, yosemune: 1.08, katanagare: 0.95, complex: 1.18 };
-  var MAT = {
-    slate:  { label: 'スレート', ok: { paint: 1, cover: 1, reroof: 1 } },
-    metal:  { label: '金属屋根', ok: { paint: 1, cover: 1, reroof: 1 } },
-    tin:    { label: 'トタン', ok: { paint: 1, cover: 1, reroof: 1 } },
-    cement: { label: 'セメント瓦', ok: { paint: 1, cover: 0, reroof: 1 } },
-    kawara: { label: '日本瓦', ok: { paint: 0, cover: 0, reroof: 1 } }
-  };
-  var AGE = { '1': '築10〜15年', '2': '築16〜25年', '3': '築26年以上', '4': '雨漏りあり' };
-  var SHAPE_LABEL = { kirizuma: '切妻', yosemune: '寄棟', katanagare: '片流れ', complex: '複合型' };
+/* ===== 設問定義 ===== */
+const Q=[
+ {id:'fa',title:'おおよその建坪（1階の床面積）はいくつですか？',opts:[['15坪','50㎡'],['20坪','66㎡'],['25坪','82㎡'],['30坪','100㎡'],['35坪','115㎡']]},
+ {id:'fn',title:'何階建てですか？',opts:[['2階建て',''],['3階建て','']]},
+ {id:'lr',title:'下屋根（げやね）はありますか？',hint:'1階部分にせり出した屋根のことです。',opts:[['下屋根あり',''],['下屋根なし','']]},
+ {id:'rs',title:'屋根面（1階含む）はいくつありますか？',opts:[['3面以下','切妻・片流れなど'],['4〜7面','寄棟など'],['8面以上','複合形状']]},
+ {id:'rt',title:'現在使われている屋根材はどれですか？',opts:[['瓦屋根','セメント瓦'],['金属屋根','トタン・ガルバリウム'],['コロニアル','スレート'],['わからない','']]},
+ {id:'rv',title:'希望するリフォーム方法はどれですか？',opts:[['カバー工法','既存屋根の上に重ね張り'],['葺き替え','アスベストなし'],['葺き替え','アスベストあり'],['屋根塗装','']]},
+ {id:'op',multi:true,title:'追加で依頼したいオプション工事をお選びください',hint:'複数選択できます。選ばなくても結果は表示されます。',opts:[['外壁塗装','付帯部の塗装を含む'],['外壁シーリング','目地の打ち替え'],['金属サイディング','横張り'],['金属サイディング','縦張り'],['雪止め金具','全面取付'],['雨どい交換','全部交換'],['換気棟','1台取付'],['太陽光パネル脱着','']]}
+];
+const RV_KEYS=['Cover','ReRoof','RWA','Paint'];
+/* 屋根材ごとに選べる工法 */
+const ALLOW={0:['ReRoof','RWA'],1:['Paint','ReRoof'],2:['Paint','Cover','ReRoof','RWA'],3:[]};
+const RR_INDEX={'0ReRoof':0,'0RWA':1,'1Paint':2,'1ReRoof':3,'2Paint':4,'2Cover':5,'2ReRoof':6,'2RWA':7};
 
-  var form = document.getElementById('simForm');
-  var tsubo = document.getElementById('tsubo');
+/* ===== 単価テーブル（掛け率適用済み・税抜） [A,B] ===== */
+const ASHIBA=[[[200362,172534],[311674,283846]],[[217059,189231],[333936,306108]],[[239321,205927],[361764,328371]],[[250452,222624],[384027,350633]],[[272715,239321],[411855,372896]]]; // [FA][FN][RS:0=3面以下,1=4面以上] A=B
+const ROOF=[
+ [[906036,1006707],[1061216,1179129],[238764,286517],[829598,921776],[230416,276499],[481870,535411],[892111,991234],[976764,1085293]],
+ [[1172517,1302797],[1371276,1523640],[312230,374677],[1071535,1190594],[293864,352637],[593071,658968],[1097983,1219981],[1202171,1335745]],
+ [[1425674,1584082],[1666209,1851343],[385696,462836],[1301750,1446389],[357312,428774],[704272,782524],[1303854,1448727],[1427578,1586197]],
+ [[1732128,1924586],[2021650,2246278],[470182,564219],[1578851,1754279],[434117,520941],[815472,906080],[1509726,1677473],[1652985,1836650]],
+ [[1998609,2220676],[2331710,2590789],[539975,647970],[1820788,2023097],[497565,597078],[926673,1029637],[1715598,1906220],[1878392,2087102]]];
+const SCREW=[36176,44525,52873,61222,69570]; // プランBのみ・塗装以外
+const BANKIN_HAS=[[[117379,123556],[147305,155058],[171204,180214]],[[161052,169528],[196900,207263],[220799,232420]],[[203615,214331],[245438,258355],[269336,283512]],[[237401,249896],[297148,312787],[321046,337944]],[[277849,292473],[343570,361653],[367469,386810]]];
+const BANKIN_STD=[[[101517,106860],[131443,138361],[155342,163517]],[[131443,138361],[167291,176096],[191190,201252]],[[161316,169807],[203139,213831],[227038,238987]],[[179240,188674],[238987,251565],[262886,276722]],[[209114,220120],[274835,289300],[298734,314457]]]; // 下屋根なし、または屋根塗装
+const WALL=[ // [FA][FN][LR][RS2]
+ [[[[581909,611004],[519640,545622]],[[614972,645720],[587419,616790]]],[[[802329,842445],[790757,830295]],[[936234,983046],[881129,925185]]]],
+ [[[[681649,715731],[581909,611004]],[[714712,750447],[614972,645720]]],[[[902069,947172],[802329,842445]],[[946153,993460],[936234,983046]]]],
+ [[[[781389,820458],[681649,715731]],[[814452,855174],[714712,750447]]],[[[1001809,1051899],[902069,947172]],[[1056914,1109760],[946153,993460]]]],
+ [[[[881129,925185],[781389,820458]],[[914192,959902],[814452,855174]]],[[[1101549,1156626],[1001809,1051899]],[[1156654,1214487],[1056914,1109760]]]],
+ [[[[980869,1029912],[881129,925185]],[[1013932,1064629],[914192,959902]]],[[[1311499,1377074],[1101549,1156626]],[[1366604,1434934],[1156654,1214487]]]]];
+const SEAL=[[158702,176336],[178540,198378],[198378,220420],[218216,242462],[238054,264504]];
+const YOKO=[
+ [[[[1378542,1699203],[1231028,1517375]],[[1456868,1795748],[1391596,1715294]]],[[[1900717,2342840],[1873303,2309049]],[[2217938,2733850],[2087394,2572941]]]],
+ [[[[1614826,1990449],[1378542,1699203]],[[1693152,2086994],[1456868,1795748]]],[[[2137001,2634086],[1900717,2342840]],[[2241436,2762814],[2217938,2733850]]]],
+ [[[[1851110,2281695],[1614826,1990449]],[[1929437,2378240],[1693152,2086994]]],[[[2373285,2925332],[2137001,2634086]],[[2503829,3086241],[2241436,2762814]]]],
+ [[[[2087394,2572941],[1851110,2281695]],[[2165721,2669486],[1929437,2378240]]],[[[2609569,3216578],[2373285,2925332]],[[2740113,3377487],[2503829,3086241]]]],
+ [[[[2323679,2864187],[2087394,2572941]],[[2402005,2960732],[2165721,2669486]]],[[[3106941,3829643],[2609569,3216578]],[[3237485,3990552],[2740113,3377487]]]]];
+const TATE=[
+ [[[[1438479,1762136],[1284550,1573574]],[[1520210,1862258],[1452101,1778823]]],[[[1983357,2429612],[1954751,2394570]],[[2314370,2835104],[2178151,2668235]]]],
+ [[[[1685036,2064169],[1438479,1762136]],[[1766768,2164290],[1520210,1862258]]],[[[2229914,2731645],[1983357,2429612]],[[2338890,2865140],[2314370,2835104]]]],
+ [[[[1931593,2366202],[1685036,2064169]],[[2013325,2466323],[1766768,2164290]]],[[[2476472,3033678],[2229914,2731645]],[[2612691,3200547],[2338890,2865140]]]],
+ [[[[2178151,2668235],[1931593,2366202]],[[2259883,2768356],[2013325,2466323]]],[[[2723029,3335711],[2476472,3033678]],[[2859249,3502579],[2612691,3200547]]]],
+ [[[[2424708,2970268],[2178151,2668235]],[[2506440,3070389],[2259883,2768356]]],[[[3242026,3971481],[2723029,3335711]],[[3378245,4138350],[2859249,3502579]]]]];
+const SNOW=[[33394,55656],[38959,61222],[50090,73466],[61222,85710],[72353,97955]]; // [FA][RS2] A=B
+const RAIN=[[[155837,163629],[205927,216224]],[[166968,175317],[217059,227912]],[[178099,187004],[228190,239599]],[[189231,198692],[239321,251287]],[[200362,210380],[250452,262975]]];
+const KANKI=32281;
+const SOLAR=[333936,367330,389592,422986,445248], PANELS=[15,18,20,23,25];
+const THREE_F=[33063,66126]; // 通常 / 金属サイディング併用時
+const ROOF_AREA=['65','80','95','110','125'];
+const WALL_AREA={'00':[125,140,155,170,185],'10':[165,180,195,210,225],'01':[140,155,170,185,200],'11':[180,195,210,225,240]}; // key: FN+LR
 
-  function val(name) { return form.querySelector('input[name="' + name + '"]:checked').value; }
-  function man(yen) { return Math.round(yen / 10000); }
+/* ===== 工事内容（サンプル文言） ===== */
+const KOJI={
+ Cover:{A:['既存屋根の上に防水シートを敷設','標準グレードの金属屋根材で重ね張り'],B:['既存屋根の上に高耐久防水シートを敷設','高耐久グレードの金属屋根材で重ね張り','ステンレスビスで固定し耐風性を強化']},
+ ReRoof:{A:['既存屋根材の撤去・処分','野地板の増し張り・防水シート敷設','標準グレードの屋根材で葺き替え'],B:['既存屋根材の撤去・処分','野地板の増し張り・高耐久防水シート敷設','高耐久グレードの屋根材で葺き替え','ステンレスビスで固定し耐風性を強化']},
+ RWA:{A:['飛散防止措置のうえアスベスト含有屋根材を撤去・処分','野地板の増し張り・防水シート敷設','標準グレードの屋根材で葺き替え'],B:['飛散防止措置のうえアスベスト含有屋根材を撤去・処分','野地板の増し張り・高耐久防水シート敷設','高耐久グレードの屋根材で葺き替え','ステンレスビスで固定し耐風性を強化']},
+ Paint:{A:['高圧洗浄・下地補修','シリコン系塗料で3回塗り'],B:['高圧洗浄・下地補修','高耐候フッ素系塗料で3回塗り']}
+};
 
-  function recommend(mat, age) {
-    if (mat === 'kawara') return 'reroof';
-    if (age === '4') return 'reroof';
-    if (age === '3') return MAT[mat].ok.cover ? 'cover' : 'reroof';
-    if (age === '2') return (mat === 'slate' || mat === 'tin') ? 'cover' : 'paint';
-    return 'paint';
-  }
+/* ===== 状態 ===== */
+const S={fa:null,fn:null,lr:null,rs:null,rt:null,rv:null,op:[]};
+const SAMPLE={fa:3,fn:0,lr:0,rs:1,rt:2,rv:0,op:[0]};
+const yen=n=>n.toLocaleString('ja-JP');
+const man=n=>(Math.round(n/1000)/10).toLocaleString('ja-JP',{maximumFractionDigits:1});
 
-  function reason(mat, age, key) {
-    if (mat === 'kawara') return '日本瓦は塗装不要の素材です。下地や漆喰の傷みが進んでいる場合は、軽量な金属屋根への葺き替えで耐震性も高められます。部分補修で済むケースもあるため、まずは診断がおすすめです。';
-    if (age === '4') return '雨漏りがある場合、屋根下の防水シートや野地板が傷んでいる可能性が高く、表面の塗装では解決しません。下地から新しくする葺き替えが確実です。';
-    if (key === 'cover') return MAT[mat].label + 'の割れ・反りやサビが進む時期です。既存屋根の上に断熱材付き金属屋根を重ねるカバー工法なら、撤去費を抑えつつ30年前後安心できます。';
-    if (key === 'reroof') return 'セメント瓦の傷みが進んでいる場合、カバー工法は適しません。軽量な屋根材への葺き替えをおすすめします。';
-    return '屋根材自体はまだ健全な時期です。塗装で防水性を回復させれば、費用を抑えて10年以上長持ちさせられます。遮熱塗料なら夏の室温対策にも。';
-  }
+function rvKey(){return S.rv==null?null:RV_KEYS[S.rv]}
+function allowedFor(rt,i){return rt!=null && ALLOW[rt].includes(RV_KEYS[i])}
+function allowed(i){return allowedFor(S.rt,i)}
+function complete(){return ['fa','fn','lr','rs','rt','rv'].every(k=>S[k]!=null) && S.rt!==3}
 
-  function calc() {
-    var t = +tsubo.value;
-    var mat = val('mat'), shape = val('shape'), age = val('age');
-    var area = Math.round(t * 3.3 * 1.2 * SHAPE[shape]);          // 屋根面積の目安
-    var wall = Math.round(Math.sqrt(t * 3.3 / 2) * 4 * 6.5);        // 足場架面積の目安（2階建）
-    document.getElementById('tsuboVal').innerHTML = t + '坪<small>屋根面積 約' + area + '㎡</small>';
+/* ===== 計算 ===== */
+function calc(){
+  const fa=S.fa, fn=S.fn, lr=S.lr, rs=S.rs, rs2=rs===0?0:1, rv=rvKey(), op=S.op;
+  const rr=RR_INDEX[S.rt+rv];
+  const A=[],B=[];
+  const add=(label,a,b,note)=>{if(a!=null)A.push([label,a,note]);if(b!=null)B.push([label,b,note])};
+  add('足場工事',ASHIBA[fa][fn][rs2],ASHIBA[fa][fn][rs2]);
+  add('屋根本体工事',...ROOF[fa][rr]);
+  if(rv!=='Paint') add('ステンレスビス留め',null,SCREW[fa]);
+  const bk=(lr===0 && rv!=='Paint')?BANKIN_HAS:BANKIN_STD;
+  add('板金工事',...bk[fa][rs]);
+  if(op.includes(0)) add('外壁塗装（付帯塗装共）',...WALL[fa][fn][lr][rs2]);
+  if(op.includes(1)) add('外壁シーリング',...SEAL[fa]);
+  if(op.includes(2)) add('金属サイディング（横張り）',...YOKO[fa][fn][lr][rs2]);
+  if(op.includes(3)) add('金属サイディング（縦張り）',...TATE[fa][fn][lr][rs2]);
+  if(op.includes(4)) add('雪止め金具（全面取付）',SNOW[fa][rs2],SNOW[fa][rs2]);
+  if(op.includes(5)) add('雨どい全部交換',...RAIN[fa][rs2]);
+  if(op.includes(6)) add('換気棟の取り付け',KANKI,KANKI,'1台');
+  if(op.includes(7)) add('太陽光パネル脱着',SOLAR[fa],SOLAR[fa],PANELS[fa]+'枚程度');
+  if(fn===1){const v=THREE_F[(op.includes(2)||op.includes(3))?1:0];add('3階建て手間',v,v)}
+  const fin=list=>{let sub=list.reduce((s,r)=>s+r[1],0);const other=Math.round(sub*.05);list.push(['諸経費・運送費',other]);const total=sub+other;const tax=Math.round(total*.1);return{list,total,tax,incl:total+tax}};
+  return{A:fin(A),B:fin(B),roofArea:ROOF_AREA[fa],wallArea:op.includes(0)||op.includes(2)||op.includes(3)?WALL_AREA[''+fn+lr][fa]:null};
+}
 
-    var best = recommend(mat, age);
-    var prices = {};
-    Object.keys(METHODS).forEach(function (k) {
-      var m = METHODS[k];
-      prices[k] = [
-        man(area * m.unit[0] + wall * SCAFFOLD[0]),
-        man(area * m.unit[1] + wall * SCAFFOLD[1])
-      ];
+/* ===== 描画 ===== */
+const $=sel=>document.querySelector(sel);
+function renderQuestions(){
+  const host=$('#simQuestions');host.innerHTML='';
+  Q.forEach((q,qi)=>{
+    const prevDone=Q.slice(0,qi).every(p=>p.multi||S[p.id]!=null);
+    const sec=document.createElement('div');sec.className='sq'+(prevDone?'':' locked');sec.id='q-'+q.id;
+    sec.innerHTML=`<div class="q-label"><span class="no">Q${qi+1}</span>${q.title}</div>${q.hint?`<p class="hint">${q.hint}</p>`:''}`;
+    const grid=document.createElement('div');grid.className='choices';grid.setAttribute('role','group');grid.setAttribute('aria-label',q.title);
+    q.opts.forEach((o,i)=>{
+      const b=document.createElement('button');b.type='button';b.className='choice';b.id=`c-${q.id}-${i}`;
+      b.innerHTML=`<b>${o[0]}</b>${o[1]?`<span>${o[1]}</span>`:''}`;
+      const on=q.multi?S.op.includes(i):S[q.id]===i;b.setAttribute('aria-pressed',on);
+      if(q.id==='rv' && !allowed(i)) b.disabled=true;
+      b.addEventListener('click',()=>pick(q,i));
+      grid.appendChild(b);
     });
-    var maxHi = Math.max(prices.paint[1], prices.cover[1], prices.reroof[1]);
-
-    document.getElementById('recoName').textContent = METHODS[best].name;
-    document.getElementById('recoPrice').innerHTML = '約' + prices[best][0] + '〜' + prices[best][1] + '<small>万円（税込・足場代込）</small>';
-    document.getElementById('recoWhy').textContent = reason(mat, age, best);
-
-    var html = '';
-    Object.keys(METHODS).forEach(function (k) {
-      var m = METHODS[k], ok = MAT[mat].ok[k];
-      var cls = 'cmp' + (k === best ? ' best' : '') + (ok ? '' : ' na');
-      html += '<div class="' + cls + '"><h4>' + m.name + '</h4>' +
-        '<div class="price">' + (ok ? prices[k][0] + '〜' + prices[k][1] + '<small style="font-size:.7rem">万円</small>' : '対象外') + '</div>' +
-        '<div class="bar"><i style="width:' + (ok ? Math.round(prices[k][1] / maxHi * 100) : 0) + '%"></i></div>' +
-        '<dl><dt>耐用年数</dt><dd>' + m.life + '</dd><dt>工期</dt><dd>' + m.days + '</dd></dl>' +
-        (ok ? '' : '<p class="note" style="margin-top:6px;">' + MAT[mat].label + 'には適さない工法です</p>') +
-        '</div>';
-    });
-    document.getElementById('compare').innerHTML = html;
-
-    var summary = MAT[mat].label + '／' + t + '坪／' + SHAPE_LABEL[shape] + '／' + AGE[age] +
-      ' → おすすめ：' + METHODS[best].name + '（約' + prices[best][0] + '〜' + prices[best][1] + '万円）';
-    document.getElementById('simHidden').value = summary;
-    var box = document.getElementById('simSummary');
-    box.innerHTML = '<b>シミュレーション結果を添付します</b><br>' + summary;
-
-    var kind = document.getElementById('kind');
-    kind.selectedIndex = age === '4' ? 4 : ({ paint: 1, cover: 2, reroof: 3 })[best];
-  }
-
-  form.addEventListener('change', calc);
-  tsubo.addEventListener('input', calc);
-  document.getElementById('toForm').addEventListener('click', function () {
-    document.getElementById('simSummary').classList.add('on');
+    sec.appendChild(grid);
+    if(q.id==='rt' && S.rt===3){const n=document.createElement('p');n.className='sim-notice';n.textContent='屋根材がわからない場合は、無料の現地調査で確認してからお見積りします。下のフォームからお申し込みください。';sec.appendChild(n)}
+    if(q.id==='rv' && S.rt!=null && S.rt!==3){const n=document.createElement('p');n.className='hint';n.style.margin='10px 0 0';n.textContent=`選んだ屋根材（${Q[4].opts[S.rt][0]}）で対応できる工法だけを選べます。`;sec.appendChild(n)}
+    host.appendChild(sec);
   });
-  calc();
+}
+function pick(q,i){
+  if(q.multi){S.op=S.op.includes(i)?S.op.filter(x=>x!==i):[...S.op,i]}
+  else{S[q.id]=i; if(q.id==='rt' && S.rv!=null && !allowed(S.rv)) S.rv=null;}
+  update();
+  const btn=document.getElementById(`c-${q.id}-${i}`);btn&&btn.focus({preventScroll:true});
+  if(!q.multi){const next=Q[Q.indexOf(q)+1];if(next && !(q.id==='rt'&&S.rt===3)){const el=document.getElementById('q-'+next.id);el&&el.scrollIntoView({behavior:'smooth',block:'center'})}}
+}
+function planHTML(p,key,label,sub){
+  const rv=rvKey();
+  return `<h3>${label}<small>${sub}</small></h3>
+  <div><div class="yen">${man(p.incl)}<small> 万円</small></div><div class="tax">税込 ${yen(p.incl)}円（税抜 ${yen(p.total)}円＋消費税 ${yen(p.tax)}円）</div></div>
+  <table class="breakdown"><tbody>${p.list.map(r=>`<tr${r[0].startsWith('諸経費')?' class="sub"':''}><td>${r[0]}${r[2]?`<br><small>${r[2]}</small>`:''}</td><td>${yen(r[1])}円</td></tr>`).join('')}</tbody></table>
+  <details class="koji"><summary>屋根工事の内容を見る</summary><ul>${KOJI[rv][key].map(t=>`<li>${t}</li>`).join('')}</ul></details>`;
+}
+function update(){
+  renderQuestions();
+  const answered=['fa','fn','lr','rs','rt','rv'].filter(k=>S[k]!=null).length;
+  $('#simProgress').innerHTML=Array.from({length:6},(_,i)=>`<span class="${i<answered?'on':''}"></span>`).join('');
+  const ok=complete();
+  $('#simStatus').textContent=S.rt===3?'屋根材がわからない場合は現地調査で確認します':ok?'すべての質問に回答済みです':`残り ${6-answered} 問（Q7は任意）`;
+  $('#result').hidden=!ok;
+  if(ok){
+    const r=calc();
+    const labels=['fa','fn','lr','rs','rt','rv'].map(k=>{const q=Q.find(x=>x.id===k);const o=q.opts[S[k]];return k==='rv'&&S.rv<3&&S.rv>0?o[0]+'（'+o[1]+'）':o[0]});
+    const ops=S.op.slice().sort().map(i=>Q[6].opts[i].join(' ').trim());
+    $('#simSummary').innerHTML=[...labels,...ops].map(t=>`<span>${t}</span>`).join('');
+    $('#simAreas').innerHTML=`<span>屋根面積の目安 <b>${r.roofArea}㎡</b> 前後</span>${r.wallArea?`<span>外壁面積の目安 <b>${r.wallArea}㎡</b> 前後</span>`:''}`;
+    $('#planA').innerHTML=planHTML(r.A,'A','プランA','価格重視');
+    $('#planB').innerHTML=planHTML(r.B,'B','プランB','品質重視');
+    $('#barVals').innerHTML=`<div class="v a"><small>プランA 価格重視（税込）</small><b>${man(r.A.incl)}万円</b></div><div class="v b"><small>プランB 品質重視（税込）</small><b>${man(r.B.incl)}万円</b></div>`;
+    $('#barBtn').textContent='結果を見る';
+    $('#simResult').value=[
+      '■回答内容',
+      ...['建坪','階数','下屋根','屋根面','屋根材','工法'].map((h,i)=>`${h}：${labels[i]}`),
+      `オプション：${ops.length?ops.join('、'):'なし'}`,
+      '■概算金額（税込）',
+      `プランA（価格重視）：${yen(r.A.incl)}円`,
+      `プランB（品質重視）：${yen(r.B.incl)}円`].join('\n');
+    // 希望工事のチェックをシミュレーション内容に合わせる
+    const want=new Set([{Cover:'屋根カバー工法',ReRoof:'屋根葺き替え',RWA:'屋根葺き替え',Paint:'屋根塗装'}[rvKey()]]);
+    if(S.op.includes(0)) want.add('外壁塗装');
+    if(S.op.includes(2)||S.op.includes(3)) want.add('外壁張り替え');
+    if(S.op.includes(5)) want.add('雨どい交換');
+    document.querySelectorAll('#workOpts input').forEach(c=>{c.checked=want.has(c.value)});
+    try{localStorage.setItem('reformSimulationResult',JSON.stringify({s:S,a:r.A.incl,b:r.B.incl,at:Date.now()}))}catch(e){}
+  }else{
+    $('#barVals').innerHTML=`<div class="v"><small>概算金額</small><b>${S.rt===3?'現地調査でお見積り':'回答すると表示されます'}</b></div>`;
+    $('#barBtn').textContent=S.rt===3?'調査を申し込む':'次の質問へ';
+    $('#simResult').value=S.rt===3?'屋根材がわからないため、現地調査でのお見積りを希望します。':'まだシミュレーションが完了していません。';
+  }
+}
+$('#barBtn').addEventListener('click',()=>{
+  if(complete()) $('#result').scrollIntoView({behavior:'smooth'});
+  else if(S.rt===3) $('#contact').scrollIntoView({behavior:'smooth'});
+  else{const q=Q.find(q=>!q.multi&&S[q.id]==null);q&&document.getElementById('q-'+q.id).scrollIntoView({behavior:'smooth',block:'center'})}
+});
+$('#simClear').addEventListener('click',()=>{Object.assign(S,{fa:null,fn:null,lr:null,rs:null,rt:null,rv:null,op:[]});update();$('#simulator').scrollIntoView({behavior:'smooth'})});
 
-  // ヒーローの検索バー → シミュレーターに反映
-  document.getElementById('quickSearch').addEventListener('submit', function (e) {
-    e.preventDefault();
-    ['mat', 'shape', 'age'].forEach(function (n) {
-      var v = document.getElementById('qs' + n.charAt(0).toUpperCase() + n.slice(1)).value;
-      form.querySelector('input[name="' + n + '"][value="' + v + '"]').checked = true;
-    });
-    tsubo.value = document.getElementById('qsTsubo').value;
-    calc();
-    document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
+/* 追従バーはシミュレーターが画面内にあるときだけ表示 */
+if('IntersectionObserver' in window){
+  new IntersectionObserver(es=>es.forEach(e=>{$('#simBar').classList.toggle('on',e.isIntersecting);document.body.classList.toggle('bar-on',e.isIntersecting)}),{rootMargin:'0px 0px -40% 0px'}).observe($('#simulator'));
+}
+
+/* ===== ヒーローの検索バー ===== */
+const qsRt=$('#qsRt'), qsRv=$('#qsRv');
+function fillQsRv(){
+  const rt=+qsRt.value, cur=qsRv.value;
+  qsRv.innerHTML=rt===3?'<option value="">現地調査で確認</option>':Q[5].opts.map((o,i)=>allowedFor(rt,i)?`<option value="${i}">${o[0]}${i===1||i===2?'（'+o[1]+'）':''}</option>`:'').join('');
+  if([...qsRv.options].some(o=>o.value===cur)) qsRv.value=cur;
+  qsRv.disabled=rt===3;
+}
+qsRt.addEventListener('change',fillQsRv);fillQsRv();
+$('#quickSearch').addEventListener('submit',e=>{
+  e.preventDefault();
+  S.fa=+$('#qsFa').value; S.fn=+$('#qsFn').value; S.rt=+qsRt.value;
+  S.rv=S.rt===3?null:+qsRv.value; S.lr=null; S.rs=null;
+  update();
+  const target=S.rt===3?$('#contact'):document.getElementById('q-lr');
+  target.scrollIntoView({behavior:'smooth',block:S.rt===3?'start':'center'});
+});
+
+/* ===== フォームの選択肢 ===== */
+function opts(id,name,list,type='radio'){$(id).innerHTML=list.map((t,i)=>`<label><input type="${type}" name="${name}" value="${t}"> ${t}</label>`).join('')}
+opts('#workOpts','work',['屋根葺き替え','屋根カバー工法','屋根塗装','外壁塗装','外壁張り替え','雨どい交換','その他'],'checkbox');
+opts('#ageOpts','age',['10年未満','10〜20年','20〜30年','30年以上']);
+opts('#leakOpts','leak',['あり','なし','わからない']);
+opts('#contactOpts','contact',['電話','メール']);
+opts('#dayOpts','day',['平日','土日祝','いつでも']);
+
+/* 初期表示はサンプル回答（30坪・2階・下屋根あり・4〜7面・コロニアル・カバー工法＋外壁塗装） */
+Object.assign(S,SAMPLE);
+update();
 
   // エリア別施工事例（表示例データ。実際はCMSの施工事例一覧から出力する）
   var CASES = [
@@ -1235,6 +1306,12 @@
 
   document.getElementById('quoteForm').addEventListener('submit', function (e) {
     e.preventDefault();
+    var miss = [['name', 'お名前'], ['tel', '電話番号'], ['email', 'メールアドレス'], ['addr', '住所']]
+      .filter(function (f) { return !document.getElementById(f[0]).value.trim(); }).map(function (f) { return f[1]; });
+    var err = document.getElementById('formErr');
+    if (miss.length) { err.textContent = miss.join('・') + 'を入力してください。'; err.hidden = false; return; }
+    if (!document.getElementById('agree').checked) { err.textContent = '個人情報の取り扱いへの同意にチェックを入れてください。'; err.hidden = false; return; }
+    err.hidden = true;
     this.style.display = 'none';
     document.getElementById('formDone').style.display = 'block';
   });
