@@ -322,26 +322,13 @@
   .unit .yen { font-family: "Zen Kaku Gothic New", sans-serif; font-weight: 900; color: var(--ng); font-size: 1.05rem; font-variant-numeric: tabular-nums; }
   .unit small { display: block; font-size: 0.68rem; color: var(--muted); }
 
-  /* 代表挨拶 */
-  .greet { background: var(--green); color: #fff; }
-  .greet-grid { display: grid; grid-template-columns: 1fr 300px; gap: 40px; align-items: center; }
-  .greet .en { color: #FFE1A8; font-size: 0.78rem; font-weight: 700; letter-spacing: .2em; }
-  .greet h2 { font-size: clamp(1.4rem, 2.8vw, 1.9rem); font-weight: 900; margin: 8px 0 16px; line-height: 1.5; }
-  .greet p { color: var(--on-dark); font-size: 0.95rem; }
-  .greet p + p { margin-top: 12px; }
-  .greet .sign { margin-top: 18px; font-weight: 700; }
-  .portrait { aspect-ratio: 4/5; border-radius: 14px; background: linear-gradient(170deg, #7FA088, #3F6149); border: 4px solid rgba(255,255,255,.35); display: grid; place-items: center; color: #E6EFE8; font-size: 0.85rem; text-align: center; }
-  .portrait svg { width: 96px; height: 96px; margin: 0 auto 8px; opacity: .6; }
-
 
 
   @media (max-width: 960px) {
     .qs-row { grid-template-columns: 1fr 1fr; }
     .qs .btn { grid-column: 1 / -1; }
     .unit-grid { grid-template-columns: repeat(3, 1fr); }
-    .greet-grid { grid-template-columns: 1fr; }
-    .portrait { max-width: 260px; }
-  }
+      }
   @media (max-width: 680px) {
     .qs { padding: 16px 14px; }
     .qs-title { gap: 8px 6px; }
@@ -352,26 +339,13 @@
     .after-hero { padding-top: 100px; }
   }
 
-  /* 施工実績（月桂樹）・スタッフ紹介 */
+  /* 施工実績（月桂樹） */
   .laurel { display: flex; justify-content: center; align-items: center; gap: 14px; margin: 0 auto; padding: 124px 0 0; }
   .laurel svg { width: 34px; height: 64px; color: var(--gold); flex-shrink: 0; }
   .laurel .txt { text-align: center; line-height: 1.4; }
   .laurel .txt b { display: block; font-family: "Zen Kaku Gothic New", sans-serif; font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 900; color: var(--accent-deep); }
   .laurel .txt small { font-size: 0.85rem; font-weight: 700; color: var(--ink-soft); }
 
-  .staff-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 40px; }
-  .staff { text-align: center; }
-  .staff .ph { aspect-ratio: 1; max-width: 132px; margin: 0 auto; border-radius: 50%; background: linear-gradient(160deg, #A9C3AF, #5B8466); border: 4px solid rgba(255,255,255,.5); display: grid; place-items: center; }
-  .staff .ph svg { width: 46%; height: 46%; color: rgba(255,255,255,.75); }
-  .staff b { display: block; margin-top: 8px; font-size: 0.9rem; }
-  .staff small { display: inline-block; font-size: 0.7rem; border: 1px solid rgba(255,255,255,.6); border-radius: 4px; padding: 0 8px; color: var(--on-dark); }
-
-  @media (max-width: 960px) {
-    .staff-row { grid-template-columns: repeat(3, 1fr); }
-  }
-  @media (max-width: 680px) {
-    .staff-row { grid-template-columns: repeat(2, 1fr); }
-  }
 
   /* 見積シミュレーター（7問・2プラン） */
   .sim-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 0.85rem; color: var(--muted); margin-bottom: 8px; }
@@ -713,27 +687,6 @@
     </div>
   </section>
 
-
-  <!-- GREETING -->
-  <section class="greet">
-    <div class="wrap greet-grid">
-      <div>
-        <span class="en">MESSAGE</span>
-        <h2>「屋根のことは、見えないからこそ<br>正直にお伝えする」</h2>
-        <p>屋根は普段目にすることがなく、言われるがままに高額な工事を契約してしまうケースが後を絶ちません。私たちは診断写真をすべてお見せし、必要な工事だけをご提案することを大切にしています。</p>
-        <p>塗装で済む屋根に葺き替えは勧めません。地元・福岡で長く頼っていただける工事店であり続けます。</p>
-        <div class="sign">プロタイムズ福岡中央店　代表　〇〇 〇〇</div>
-      </div>
-      <div class="portrait"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>代表写真</div></div>
-    </div>
-    <div class="wrap staff-row">
-      <div class="staff"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></div><b>〇〇 〇〇</b><small>代表</small></div>
-      <div class="staff"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></div><b>〇〇 〇〇</b><small>外装劣化診断士</small></div>
-      <div class="staff"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></div><b>〇〇 〇〇</b><small>屋根職人</small></div>
-      <div class="staff"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></div><b>〇〇 〇〇</b><small>塗装職人</small></div>
-      <div class="staff"><div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></div><b>〇〇 〇〇</b><small>アドバイザー</small></div>
-    </div>
-  </section>
 
   <!-- INSURANCE / SUBSIDY -->
   <section class="section-alt">
