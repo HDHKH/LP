@@ -302,7 +302,8 @@
   /* Hero quick search (テイガク型の検索バー) */
   .hero { padding-bottom: 0; overflow: visible; }
   .hero-grid { padding-bottom: 40px; }
-  .hero .usp { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
+  .hero .usp { grid-column: 1 / -1; display: flex; gap: 10px; flex-wrap: nowrap; justify-content: center; margin-top: -20px; }
+  .hero .usp span { white-space: nowrap; }
   .hero .usp span { background: var(--bg-elevated); color: var(--ink); border: 2px solid var(--accent); font-weight: 900; font-size: 0.85rem; padding: 4px 14px; border-radius: 999px; }
   .hero .usp span b { color: var(--accent-deep); }
   .qs-wrap { position: relative; z-index: 2; margin-bottom: -56px; }
@@ -512,7 +513,7 @@
   @media (max-width: 960px) {
     .hero-grid, .check-wrap, .contact-grid { grid-template-columns: 1fr; }
     .hero-badges { max-width: 420px; gap: 8px; margin: 0 auto; }
-    .hero .usp { justify-content: center; }
+    .hero .usp { flex-wrap: wrap; margin-top: 0; }
     .hero-grid .note { text-align: center; }
     .menu-grid, .str-grid, .case-grid { grid-template-columns: 1fr 1fr; }
     .flow { grid-template-columns: 1fr 1fr; }
@@ -580,7 +581,6 @@
         <span class="kicker">塗料メーカー アステックペイントの加盟店</span>
         <h1><span class="nw">うちの屋根、</span><br><span class="nw">直すと<span class="hl">いくら？</span></span><br><span class="nw">30秒でわかります。</span></h1>
         <p class="hero-lead">建坪・屋根材・工法を選ぶだけで、価格重視・品質重視の2プランの概算費用をその場で表示。塗料メーカー・アステックペイントの加盟店ネットワーク「プロタイムズ」だから、高耐久塗料を適正価格でご提案できます。</p>
-        <div class="usp"><span><b>外装劣化診断士</b>が診断</span><span><b>メーカー直送</b>の高耐久塗料</span><span>メーカー＋施工店の<b>W保証</b></span></div>
       </div>
       <div>
         <div class="hero-badges">
@@ -590,6 +590,7 @@
         </div>
         <p class="note" style="margin-top:12px;">※口コミ評価は表示例です。店舗の実数値に差し替えてください。</p>
       </div>
+      <div class="usp"><span><b>外装劣化診断士</b>が診断</span><span><b>メーカー直送</b>の高耐久塗料</span><span>メーカー＋施工店の<b>W保証</b></span></div>
     </div>
     <div class="wrap qs-wrap">
       <form class="qs" id="quickSearch">
