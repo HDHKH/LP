@@ -1108,7 +1108,6 @@ const KOJI={
 
 /* ===== 状態 ===== */
 const S={fa:null,fn:null,lr:null,rs:null,rt:null,rv:null,op:[]};
-const SAMPLE={fa:3,fn:0,lr:0,rs:1,rt:2,rv:0,op:[0]};
 const yen=n=>n.toLocaleString('ja-JP');
 const man=n=>(Math.round(n/1000)/10).toLocaleString('ja-JP',{maximumFractionDigits:1});
 
@@ -1253,8 +1252,7 @@ opts('#leakOpts','leak',['あり','なし','わからない']);
 opts('#contactOpts','contact',['電話','メール']);
 opts('#dayOpts','day',['平日','土日祝','いつでも']);
 
-/* 初期表示はサンプル回答（30坪・2階・下屋根あり・4〜7面・コロニアル・カバー工法＋外壁塗装） */
-Object.assign(S,SAMPLE);
+/* 初期表示は未回答 */
 update();
 
   // エリア別施工事例（表示例データ。実際はCMSの施工事例一覧から出力する）
