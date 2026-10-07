@@ -508,7 +508,7 @@
             <select id="qsRt"><option value="0">瓦屋根（セメント瓦）</option><option value="1">金属屋根</option><option value="2" selected>コロニアル（スレート）</option><option value="3">わからない</option></select></div>
           <div><label for="qsRv">リフォーム方法</label>
             <select id="qsRv"></select></div>
-          <button type="submit" class="btn btn-primary">費用を調べる ▶</button>
+          <button type="button" class="btn btn-primary" id="qsGo">費用を調べる ▶</button>
         </div>
       </form>
     </div>
@@ -781,7 +781,7 @@
           <div class="field"><label for="msg">ご質問・ご要望</label><textarea id="msg" name="msg" placeholder="気になる症状やご希望の時期など"></textarea></div>
           <label class="chk-row" style="margin-bottom:10px;"><input type="checkbox" id="agree"> 個人情報の取り扱いに同意する</label>
           <p class="form-err" id="formErr" hidden></p>
-          <button type="submit" class="btn btn-primary btn-block btn-lg">無料診断を申し込む</button>
+          <button type="button" class="btn btn-primary btn-block btn-lg" id="quoteGo">無料診断を申し込む</button>
         </form>
         <div class="form-done" id="formDone" style="grid-column:1/-1;">
           <div class="ok">✓</div>
@@ -1006,8 +1006,9 @@ function fillQsRv(){
   qsRv.disabled=rt===3;
 }
 qsRt.addEventListener('change',fillQsRv);fillQsRv();
-$('#quickSearch').addEventListener('submit',e=>{
-  e.preventDefault();
+// プレビュー等のサンドボックス環境ではフォーム送信がブロックされるため、ボタンのクリックで処理する
+$('#quickSearch').addEventListener('submit',e=>{e.preventDefault();$('#qsGo').click()});
+$('#qsGo').addEventListener('click',()=>{
   S.fa=+$('#qsFa').value; S.fn=+$('#qsFn').value; S.rt=+qsRt.value;
   S.rv=S.rt===3?null:+qsRv.value; S.lr=null; S.rs=null;
   update();
@@ -1046,15 +1047,16 @@ update();
     document.getElementById('lvText').textContent = text[lv];
   });
 
-  document.getElementById('quoteForm').addEventListener('submit', function (e) {
-    e.preventDefault();
+  var quoteForm = document.getElementById('quoteForm');
+  quoteForm.addEventListener('submit', function (e) { e.preventDefault(); document.getElementById('quoteGo').click(); });
+  document.getElementById('quoteGo').addEventListener('click', function () {
     var miss = [['name', 'お名前'], ['tel', '電話番号'], ['email', 'メールアドレス'], ['addr', '住所']]
       .filter(function (f) { return !document.getElementById(f[0]).value.trim(); }).map(function (f) { return f[1]; });
     var err = document.getElementById('formErr');
     if (miss.length) { err.textContent = miss.join('・') + 'を入力してください。'; err.hidden = false; return; }
     if (!document.getElementById('agree').checked) { err.textContent = '個人情報の取り扱いへの同意にチェックを入れてください。'; err.hidden = false; return; }
     err.hidden = true;
-    this.style.display = 'none';
+    quoteForm.style.display = 'none';
     document.getElementById('formDone').style.display = 'block';
   });
 })();
